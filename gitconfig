@@ -1,0 +1,31 @@
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+	ui = auto
+[core]
+  #editor = mate -w
+  editor = vim
+[merge]
+  tool = opendiff
+[user]
+  name = Will Charczuk
+  email = will@clotheshor.se
+[github]
+  token = 86c908bbd955efbf16a4d89e23387964
+  user = wcharczuk
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+[push]
+	default = matching
+[advice]
+	statusHints = false

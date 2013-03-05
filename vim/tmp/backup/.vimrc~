@@ -1,0 +1,37 @@
+"basic formatting {
+set clipboard=unnamed
+syn on
+set showmatch
+set mouse=a
+set number
+set cursorline
+set nowrap
+
+colorscheme delek
+
+filetype plugin on
+filetype indent on
+filetype on
+
+set autoindent
+set si
+
+set expandtab
+set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+"}
+
+"backups / other options not to do with formatting {
+set backupskip=/tmp/*,/private/tmp/*
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set backup
+"}
+
+"abbreviations / shortcuts {
+iabbrev ldis ಠ_ಠ
+"}
+"plugin stuff {
+let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
+"}
