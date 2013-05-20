@@ -18,6 +18,7 @@
   #this is rail specific
   export LC_ALL="en_US.UTF-8"
   export LANG="en_US.UTF-8"
+  set -o vi   #set's terminal to behave like vim
 #}
 
 #aliases {
@@ -41,6 +42,10 @@
   alias py="python"
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   alias lod="echo ಠ_ಠ"
+#}
+
+#functions {
+function fname() { find . -iname "*$@*"; }
 #}
 
 #rbenv stuff {

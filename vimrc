@@ -21,8 +21,10 @@ call pathogen#helptags()
     syntax on               " Enable syntax highlighting
     filetype on             " enable filetype specific plugins
     filetype plugin on      " Enable filetype detection
-    filetype indent off     " enable filetype specific indenting
+    filetype indent on      " enable filetype specific indenting
 
+    let g:syntastic_disabled_filetypes = ['lisp', 'html']
+    
     let g:Powerline_symbols = 'fancy'
     set laststatus=2    " always show powerline statusline
     set encoding=utf-8  " necessary to show unicode glyphs
@@ -30,6 +32,7 @@ call pathogen#helptags()
     set sw=2
     set ts=2
     set expandtab
+    set autoindent
 
     set clipboard=unnamed
 
@@ -41,6 +44,12 @@ call pathogen#helptags()
 "custom maps {
     nmap <S-Tab> <<
     imap <S-Tab> <Esc><<i
+
+    nmap <C-a> ^
+    nmap <C-e> $
+
+    imap <C-a> <Esc>^i
+    imap <C-e> <Esc>$i
 "}
 
 
