@@ -18,6 +18,11 @@
 "
 "============================================================================
 
+if exists("g:loaded_syntastic_fortran_gfortran_checker")
+    finish
+endif
+let g:loaded_syntastic_fortran_gfortran_checker=1
+
 if !exists('g:syntastic_fortran_flags')
     let g:syntastic_fortran_flags = ''
 endif
@@ -28,10 +33,21 @@ endfunction
 
 function! SyntaxCheckers_fortran_gfortran_GetLocList()
     let makeprg = syntastic#makeprg#build({
-                \ 'exe': 'gfortran',
-                \ 'args': s:args() })
-    let errorformat = '%-C %#,%-C  %#%.%#,%A%f:%l.%c:,%Z%m,%G%.%#'
-    return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+        \ 'exe': 'gfortran',
+        \ 'args': s:args(),
+        \ 'filetype': 'fortran',
+        \ 'subchecker': 'gfortran' })
+
+    let errorformat =
+        \ '%-C %#,'.
+        \ '%-C  %#%.%#,'.
+        \ '%A%f:%l.%c:,'.
+        \ '%Z%m,'.
+        \ '%G%.%#'
+
+    return SyntasticMake({
+        \ 'makeprg': makeprg,
+        \ 'errorformat': errorformat })
 endfunction
 
 function s:args()

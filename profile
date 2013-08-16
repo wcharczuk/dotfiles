@@ -13,7 +13,7 @@
 #env vars {
   export PATH="/usr/local/share/npm/bin:~/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:$PATH"
   export PATH="/usr/local/sbin:/usr/local/share/python:/usr/local/bin:$PATH"
-  export PGDATA="/usr/local/var/postgres"
+  export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
   export EDITOR="vim"
   export TERM="xterm-256color"
   export GOPATH="/Users/willcharczuk/code/go/"

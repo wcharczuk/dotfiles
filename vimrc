@@ -2,17 +2,12 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "basic formatting {
-    set nocompatible
-
     colorscheme molokai 
     let g:molokai_original = 1 
      
     " Make searches case0sensitive only if they contain upper-case characters
-    set ignorecase
-    set smartcase
-
     set cursorline
-
+    set backspace=indent,eol,start
     set showmatch
     set mouse=a
     set number
@@ -21,18 +16,15 @@ call pathogen#helptags()
     syntax on               " Enable syntax highlighting
     filetype on             " enable filetype specific plugins
     filetype plugin on      " Enable filetype detection
-    filetype indent on      " enable filetype specific indenting
+    "filetype indent on      " enable filetype specific indenting
 
-    let g:syntastic_disabled_filetypes = ['lisp', 'html']
-    
     let g:Powerline_symbols = 'fancy'
     set laststatus=2    " always show powerline statusline
     set encoding=utf-8  " necessary to show unicode glyphs
 
-    set sw=2
-    set ts=2
+    set sw=4
+    set ts=4
     set expandtab
-    set autoindent
 
     set clipboard=unnamed
 
