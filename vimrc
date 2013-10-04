@@ -15,15 +15,15 @@ call pathogen#helptags()
 
     syntax on               " Enable syntax highlighting
     filetype on             " enable filetype specific plugins
-    filetype plugin on      " Enable filetype detection
+    filetype plugin off      " Enable filetype detection
     "filetype indent on      " enable filetype specific indenting
 
     let g:Powerline_symbols = 'fancy'
     set laststatus=2    " always show powerline statusline
     set encoding=utf-8  " necessary to show unicode glyphs
 
-    set sw=4
-    set ts=4
+    set sw=2
+    set ts=2
     set expandtab
 
     set clipboard=unnamed

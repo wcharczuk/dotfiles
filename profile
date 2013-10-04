@@ -6,7 +6,7 @@
         #. `brew --prefix`/etc/profile.d/z.sh
     #}
     #git {
-        export PS1='\h:\w$(__git_ps1 ":(%s)")$ '  
+        export PS1='\w$(__git_ps1 ":(%s)")> '  
     #}
 #}
 
@@ -38,6 +38,10 @@
     alias gco='git checkout '
     alias got='git '
     alias get='git '
+  #}
+  #go {
+    alias go_build_debug='go build -gcflags "-N -l"'
+    alias go_build_release='go build -ldflags "-s"'
   #}
   alias tracert="traceroute"
   alias ab="ab -r"
