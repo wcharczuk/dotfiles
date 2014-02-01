@@ -5,6 +5,11 @@
         fi
         #. `brew --prefix`/etc/profile.d/z.sh
     #}
+    #git completion {
+    if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
+        . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+    fi
+    #}
     #git {
         export PS1='\w$(__git_ps1 ":(%s)") >> '  
     #}
