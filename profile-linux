@@ -1,6 +1,0 @@
-export PATH="~/bin:$PATH"
-export EDITOR="vim"
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-alias ls="ls -a -l --color"
-alias py="python"
