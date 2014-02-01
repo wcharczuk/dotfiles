@@ -10,7 +10,7 @@
 [merge]
   tool = opendiff
 [user]
-  name = Will Charczuk
+	name = Will Charczuk
   email = will@clotheshor.se
 [github]
   token = 86c908bbd955efbf16a4d89e23387964
@@ -26,6 +26,6 @@
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
 [push]
-	default = matching
+	default = simple
 [advice]
 	statusHints = false

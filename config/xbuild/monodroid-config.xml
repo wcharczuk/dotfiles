@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<monodroid>
+  <android-sdk path="/Users/willcharczuk/Library/Developer/Xamarin/android-sdk-mac_x86" />
+  <android-ndk path="/Users/willcharczuk/Library/Developer/Xamarin/android-ndk/android-ndk-r8d" />
+</monodroid>

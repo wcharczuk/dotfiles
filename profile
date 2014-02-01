@@ -6,18 +6,23 @@
         #. `brew --prefix`/etc/profile.d/z.sh
     #}
     #git {
-        export PS1='\w$(__git_ps1 ":(%s)")> '  
+        export PS1='\w$(__git_ps1 ":(%s)") >> '  
     #}
 #}
 
 #env vars {
-  export PATH="/usr/local/share/npm/bin:~/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:$PATH"
-  export PATH="/usr/local/sbin:/usr/local/share/python:/usr/local/bin:$PATH"
-  export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+  export PATH="/usr/local/share/npm/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
+  export PATH="~/bin:$PATH"
   export EDITOR="vim"
   export TERM="xterm-256color"
-  export GOPATH="/Users/willcharczuk/code/go/"
-  export GOROOT="/usr/local/Cellar/go/current"
+  
+  #go stuff
+  export GOROOT="/usr/local/Cellar/go/current/libexec"
+  export PATH="$PATH:$GOROOT/bin"
+  export GOPATH="$HOME/.go/"
+  export PATH="$PATH:$GOPATH/bin"
+  
   #this is rail specific
   export LC_ALL="en_US.UTF-8"
   export LANG="en_US.UTF-8"
@@ -49,6 +54,8 @@
   alias py="python"
   #alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   alias lod="echo ಠ_ಠ"
+  alias src="source-highlight-esc.sh"
+  alias scroll="less -R"
 #}
 
 #functions {
@@ -56,8 +63,5 @@
 #}
 
 #rbenv stuff {
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init - --no-rehash)"; fi
 #}
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

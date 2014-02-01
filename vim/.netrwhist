@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/willcharczuk/code/scala'
+let g:netrw_dirhist_2='/Users/willcharczuk/code/stripe-ctf/level1'
+let g:netrw_dirhist_3='/Users/willcharczuk/.vim'
+let g:netrw_dirhist_4='/Users/willcharczuk/code/stripe-ctf/level1'

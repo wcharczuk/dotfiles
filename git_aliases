@@ -1,0 +1,11 @@
+alias git-diff-staged="git diff --cached"
+alias git-unstage="git reset HEAD"
+alias git-unindex="git rm --cached"
+alias git-revert="git checkout" 
+alias git-history="git log"
+alias git-history-detailed="git log --stat"
+alias git-history-fullsum="git log --pretty=oneline"
+alias git-history-graph="git log --pretty=format:'%h %s' --graph"
+alias git-list-tags="git tag"
+alias git-add-tag="git tag -a"
+alias git-publish-tag="git push origin" #tagname ...
