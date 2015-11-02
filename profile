@@ -16,4 +16,5 @@ export EDITOR="vim"
 #alias {
     alias ls="ls -a -l --color"
     alias py="python"
+    alias ..="cd .."
 #}
