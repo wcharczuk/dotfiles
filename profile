@@ -17,4 +17,13 @@ export EDITOR="vim"
     alias ls="ls -a -l --color"
     alias py="python"
     alias ..="cd .."
+    alias v="vim"
+    alias e="emacs"
+
+    alias gs="git status"
+    alias gco="git checkout"
+    alias gcheck="git checkout"
+    alias ga="git add"
+    alias grhh="git reset hard head"
+
 #}
