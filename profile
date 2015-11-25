@@ -1,11 +1,14 @@
 
+# go stuff {
+    export GOPATH=$HOME/go
+    export GOROOT=/usr/local/go
+#}
+    
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
 
 export EDITOR="vim"
-
-# go stuff {
-    export GOPATH=$HOME/.go
-#}
 
 #{
     export LC_COLLATE="C"
