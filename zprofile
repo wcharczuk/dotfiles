@@ -28,5 +28,6 @@ export EDITOR="vim"
     alias gcheck="git checkout"
     alias ga="git add"
     alias grhh="git reset hard head"
-
+    
+    alias bds="cd $HOME/blend/blend/borrower-datastore"   
 #}
