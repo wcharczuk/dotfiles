@@ -30,4 +30,10 @@ export EDITOR="vim"
     alias grhh="git reset hard head"
     
     alias bds="cd $HOME/blend/blend/borrower-datastore"   
+    alias dogcheese="cd $HOME/blend/blend/dogcheese"
+    alias centrio="cd $HOME/blend/blend/centrio-ui"
 #}
+
+if [ -f "$HOME/.zsecure" ]; then 
+    . $HOME/.zsecure
+fi
