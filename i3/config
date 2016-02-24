@@ -174,10 +174,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Wallpaper
-exec_always feh --bg-scale /home/wcharczuk/Dropbox/Pictures/Backgrounds/0D8A2320.jpg
+exec_always feh --bg-scale /home/wcharczuk/Pictures/Backgrounds/0D8A2320.jpg
 
 # Fix things with vm
-exec_always --no-startup-id vmware-user
+exec_always vmware-user-suid-wrapper
 
 client.focused          $base01 $base01 $base07 $base0F
 client.focused_inactive $base02 $base02 $base03 $base0F
