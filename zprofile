@@ -29,7 +29,10 @@ export EDITOR="vim"
     alias ga="git add"
     alias grhh="git reset hard head"
     
-    alias bds="cd $GOPATH/src/blendlabs/connectivity" 
+    alias bds="cd $GOPATH/src/github.com/blendlabs/connectivity" 
+
+    alias ssheast="ssh -i $HOME/.ssh/blendeast.pem"
+    alias sshlive="ssh -i $HOME/.ssh/blendlive.pem"  
 #}
 
 if [ -f "$HOME/.zsecure" ]; then 

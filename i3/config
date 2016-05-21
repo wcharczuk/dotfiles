@@ -40,7 +40,7 @@ set $mod Mod1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:System San Francisco 10
+font pango:Droid Sans 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -52,7 +52,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Droid Sans 18"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -138,6 +138,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
+bindsym $mod+Shift+Ctrl+Left move workspace to output left
+bindsym $mod+Shift+Ctrl+Right move workspace to output right
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
@@ -179,15 +182,24 @@ exec_always feh --bg-scale /home/wcharczuk/Pictures/Backgrounds/0D8A2320.jpg
 # Fix things with vm
 exec_always vmware-user-suid-wrapper
 
-client.focused          $base01 $base01 $base07 $base0F
-client.focused_inactive $base02 $base02 $base03 $base0F
-client.unfocused         $base02 $base02 $base03 $base0F
-client.urgent           $base02 $base08 $base00 $base0F
+set $bg-color #2f343f
+set $inactive-bg-color #2f343f
+set $text-color #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color #E53935
+
+#window colors          #border             #Background         #text           #indicator
+client.focused          $base01             $base01             $base07         $base0F
+client.focused_inactive $base02             $base02             $base03         $base0F
+client.unfocused        $base02             $base02             $base03         $base0F
+client.urgent           $urgent-bg-color    $urgent-bg-color    $text-color     #00ff00
+
+hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango: System San Francisco 11
+    font pango: Droid Sans 11
     status_command i3blocks
     position bottom
     colors {
@@ -200,3 +212,5 @@ bar {
         urgent_workspace $base01 $base01 $base08
     }
 }
+
+exec compoton -f 
