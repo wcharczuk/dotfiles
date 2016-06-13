@@ -29,7 +29,7 @@ export EDITOR="vim"
     alias ga="git add"
     alias grhh="git reset hard head"
     
-    alias bds="cd $GOPATH/src/blendlabs/connectivity" 
+    alias bds="cd $GOPATH/src/github.com/blendlabs/connectivity" 
 #}
 
 if [ -f "$HOME/.zsecure" ]; then 
