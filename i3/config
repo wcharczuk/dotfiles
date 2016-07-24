@@ -177,7 +177,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Wallpaper
-exec_always feh --bg-scale /home/wcharczuk/Pictures/Backgrounds/0D8A2320.jpg
+exec_always --no-startup-id feh --bg-scale /home/wcharczuk/Pictures/Backgrounds/0D8A2320.jpg
 
 # Fix things with vm
 exec_always vmware-user-suid-wrapper
