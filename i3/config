@@ -213,4 +213,4 @@ bar {
     }
 }
 
-exec compoton -f 
+exec compton -f 
