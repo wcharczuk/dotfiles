@@ -1,0 +1,34 @@
+# Darwin specific zsh profile
+
+#env vars {
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin):$PATH"
+  export TERM="xterm-256color"
+  export HOMEBREW_NO_ANALYTICS=1
+
+  #go stuff
+  GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
+  export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
+  export PATH="$PATH:$GOROOT/bin"
+  export GOPATH="$HOME/go"
+  export PATH="$PATH:$GOPATH/bin"
+
+  #this is rails specific
+  export LC_ALL="en_US.UTF-8"
+  export LANG="en_US.UTF-8"
+  export RBENV_ROOT="/usr/local/var/rbenv"
+
+  export PGDATA=/usr/local/var/postgres
+#}
+
+#aliases {
+  #ls {
+    alias ls="ls -a -l -G"
+    alias lss="ls -G"
+  #}
+  alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+ #}
+
+ # added by travis gem
+[ -f /Users/wcharczuk/.travis/travis.sh ] && source /Users/wcharczuk/.travis/travis.sh
+
+eval "$(rbenv init -)"

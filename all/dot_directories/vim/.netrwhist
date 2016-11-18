@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/wcharczuk/blend/blend/borrower-datastore'
+let g:netrw_dirhist_2='/Users/wcharczuk/blend/blend/dogcheese'
+let g:netrw_dirhist_3='/Users/wcharczuk/blend/blend'
+let g:netrw_dirhist_4='/Users/wcharczuk/projects/message-bus'
+let g:netrw_dirhist_5='/Users/wcharczuk/blend/blend/borrower-datastore'

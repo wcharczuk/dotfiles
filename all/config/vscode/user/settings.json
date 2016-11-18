@@ -1,0 +1,23 @@
+// Place your settings in this file to overwrite the default settings
+{
+	"editor.formatOnSave": true,
+	"editor.autoClosingBrackets": false,
+	"editor.quickSuggestionsDelay": 250,
+	"editor.roundedSelection": false,
+	"editor.fontFamily": "Source Code Pro",
+	"editor.fontSize": 14,
+	"editor.glyphMargin": true,
+	"editor.wordBasedSuggestions": false,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"telemetry.enableTelemetry": false,
+	"vim.useSystemClipboard": true,
+	"go.buildOnSave": true,
+	"go.lintOnSave": true,
+	"go.vetOnSave": true,
+	"go.formatOnSave": true,
+	"go.useCodeSnippetsOnFunctionSuggest": false,
+	"go.formatTool": "goimports",
+	"workbench.sideBar.location": "right",
+	"window.zoomLevel": 0
+}
