@@ -2,7 +2,7 @@ OS ?= Linux
 PROJECT_ROOT ?= $(shell cd ${PWD}/.. && pwd)
 VSCODE_USER_DIR ?= ${HOME}/.config/Code/User
 
-install: project-root install-dotfiles install-dot-directories install-vscode
+install: project-root install-dot-files install-dot-directories install-vscode
 
 project-root:
 	@echo "(${OS}) Project Root ${PROJECT_ROOT}"
