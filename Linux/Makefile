@@ -20,6 +20,6 @@ install-dot-directories:
 install-vscode:
 	@echo "(${OS}) Installing VSCode Files"
 	@mkdir -p ${VSCODE_USER_DIR}
-	@if [ -z $(stat ${VSCODE_USER_DIR}/settings.json) ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
+	@if [ -L "${VSCODE_USER_DIR}/settings.json" ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
 	@ln -s ${PROJECT_ROOT}/all/config/vscode/settings.json ${VSCODE_USER_DIR}/settings.json
 	@echo "(${OS}) Installing VSCode Files Done!"

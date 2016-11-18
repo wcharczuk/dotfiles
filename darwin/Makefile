@@ -20,7 +20,7 @@ install-fonts:
 
 install-default-keybindings:
 	@echo "(${OS}) Installing Default Key Bindings"
-	@if [ -z $(stat ${KEYBINDINGS_DIR}/DefaultKeyBinding.dict) ]; then rm "${KEYBINDINGS_DIR}/DefaultKeyBinding.dict"; fi
+	@if [ -L "${KEYBINDINGS_DIR}/DefaultKeyBinding.dict" ]; then rm "${KEYBINDINGS_DIR}/DefaultKeyBinding.dict"; fi
 	@mkdir -p ${KEYBINDINGS_DIR}
 	@ln -s "${PROJECT_ROOT}/${OS}/config/DefaultKeyBinding.dict" "${KEYBINDINGS_DIR}/DefaultKeyBinding.dict"
 	@echo "(${OS}) Installing Default Key Bindings Done!"
@@ -28,7 +28,7 @@ install-default-keybindings:
 install-vscode:
 	@echo "(${OS}) Installing VSCode Files"
 	@mkdir -p ${VSCODE_USER_DIR}
-	@if [ -z $(stat ${VSCODE_USER_DIR}/settings.json) ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
+	@if [  -L "${VSCODE_USER_DIR}/settings.json" ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
 	@ln -s ${PROJECT_ROOT}/all/config/vscode/settings.json ${VSCODE_USER_DIR}/settings.json
 	@echo "(${OS}) Installing VSCode Files Done!"
 
