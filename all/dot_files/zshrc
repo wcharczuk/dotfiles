@@ -1,0 +1,22 @@
+export ZSH=$HOME/.oh-my-zsh
+
+ZSH_THEME="powerline"
+plugins=(git)
+
+POWERLINE_DETECT_SSH="true"
+POWERLINE_NO_BLANK_LINE="true"
+POWERLINE_HIDE_HOST_NAME="true"
+
+# User configuration
+source $ZSH/oh-my-zsh.sh
+source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zprofile
+
+HISTFILE=$HOME/.zsh-history
+KEYTIMEOUT=1
+
+# added by travis gem
+[ -f /Users/wcharczuk/.travis/travis.sh ] && source /Users/wcharczuk/.travis/travis.sh
+
+export NVM_DIR="/Users/wcharczuk/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

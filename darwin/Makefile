@@ -1,37 +1,43 @@
-OS ?= $(shell uname,,)
+OS ?= Darwin
+PROJECT_ROOT ?= $(shell cd ${PWD}/.. && pwd)
+KEYBINDINGS_DIR ?= ${HOME}/Library/KeyBindings
+VSCODE_USER_DIR ?= ${HOME}/Library/Application\ Support/Code/User
 
-all: install
+install: project-root install-homebrew install-default-keybindings install-fonts install-dot-files install-dot-directories install-vscode 
 
-install: install-homebrew install-fonts install-dot-files install-dot-directories install-vscode install-default-keybindings
+project-root:
+	@echo "(${OS}) Project Root ${PROJECT_ROOT}"
 
 install-homebrew:
-	ifeq ($OS, "darwin")
-		@echo "Installing Homebrew"
-		@sh bin/install_homebrew.sh
-		@echo "Installing Homebrew Done!"
-	endif
+	@echo "(${OS}) Installing Homebrew"
+	@if [ -z "$(shell which brew)" ]; then ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
+	@echo "(${OS}) Installing Homebrew Done!"
 
 install-fonts:
-	@echo "Installing Fonts"
-	@sh bin/install_fonts.sh
-	@echo "Installing Fonts Done!"	
-
-install-dot-files:
-	@echo "Installing Dot Files"
-	@sh bin/install_dot_files.sh
-	@echo "Installing Dot Files Done!"
-
-install-dot-directories:
-	@echo "Installing Dot Directories"
-	@sh bin/install_dot_directories.sh
-	@echo "Installing Dot Directories Done!"
-
-install-vscode:
-	@echo "Installing VSCode Files"
-	@sh bin/install_vscode.sh
-	@echo "Installinv VSCode Files Done!"
+	@echo "(${OS}) Installing Fonts"
+	@SOURCE_DIR="${PROJECT_ROOT}/all/assets/fonts" TARGET_DIR="/Library/Fonts" FILE_LEADER="" sh ${PROJECT_ROOT}/bin/link_all_files.sh
+	@echo "(${OS}) Installing Fonts Done!"	
 
 install-default-keybindings:
-	@echo "Installing Default Key Bindings"
-	@sh bin/install_default_key_bindings.sh
-	@echo "Installing Default Key Bindings Done!"
+	@echo "(${OS}) Installing Default Key Bindings"
+	@if [ -z $(stat ${KEYBINDINGS_DIR}/DefaultKeyBinding.dict) ]; then rm "${KEYBINDINGS_DIR}/DefaultKeyBinding.dict"; fi
+	@mkdir -p ${KEYBINDINGS_DIR}
+	@ln -s "${PROJECT_ROOT}/${OS}/config/DefaultKeyBinding.dict" "${KEYBINDINGS_DIR}/DefaultKeyBinding.dict"
+	@echo "(${OS}) Installing Default Key Bindings Done!"
+
+install-vscode:
+	@echo "(${OS}) Installing VSCode Files"
+	@mkdir -p ${VSCODE_USER_DIR}
+	@if [ -z $(stat ${VSCODE_USER_DIR}/settings.json) ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
+	@ln -s ${PROJECT_ROOT}/all/config/vscode/settings.json ${VSCODE_USER_DIR}/settings.json
+	@echo "(${OS}) Installing VSCode Files Done!"
+
+install-dot-files:
+	@echo "(${OS}) Installing Dot Files"
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/bin/link_all_files.sh
+	@echo "(${OS}) Installing Dot Files Done!"
+
+install-dot-directories:
+	@echo "(${OS}) Installing Dot Directories"
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/bin/link_all_files.sh
+	@echo "(${OS}) Installing Dot Directories Done!"
