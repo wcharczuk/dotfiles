@@ -11,6 +11,7 @@
   export WORKSPACE=$HOME/workspace
   export DOTFILES=$WORKSPACE/dotfiles
   export GOPATH=$WORKSPACE/go
+  export PATH=$GOPATH/bin:$PATH
 
   export GOCODE=$GOPATH/src/github.com/wcharczuk/
   export BLENDCODE=$GOPATH/src/github.com/blendlabs
@@ -25,8 +26,8 @@
   alias lod="echo ಠ_ಠ"
 
   alias dotfiles="cd $DOTFILES"
-  alias bds="cd $CONNECTIVITY"
-  alias connex="cd $CONNECTIVITY"
+  alias bds="cd $BLENDCODE/connectivity"
+  alias connex="cd $BLENDCODE/connectivity"
   alias vision="cd $BLENDCODE/vision"
   alias blend="cd $WORKSPACE/blend"
   alias smoothie="cd $BLENDCODE/smoothie-consumer"
