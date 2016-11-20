@@ -1,32 +1,54 @@
 autoload -U colors
 colors
 
-autoload -Uz vcs_info
+if [ "$THEME_GIT_CLEAN" = "" ]; then
+  THEME_GIT_CLEAN="✔"
+fi
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
-zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
-zstyle ':vcs_info:*' use-simple true
-zstyle ':vcs_info:git+set-message:*' hooks git-untracked
-zstyle ':vcs_info:git*:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
-zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u] ' # default ' (%s)-[%b|%a]%c%u-'
-zstyle ':vcs_info:hg*:*' formats '[%m%b] '
-zstyle ':vcs_info:hg*:*' actionformats '[%b|%a%m] '
-zstyle ':vcs_info:hg*:*' branchformat '%b'
-zstyle ':vcs_info:hg*:*' get-bookmarks true
-zstyle ':vcs_info:hg*:*' get-revision true
-zstyle ':vcs_info:hg*:*' get-mq false
-zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
-zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
+if [ "$THEME_GIT_DIRTY" = "" ]; then
+  THEME_GIT_DIRTY="✘"
+fi
 
-function +vi-git-untracked() {
-  emulate -L zsh
-  if [[ -n $(git ls-files --exclude-standard --others 2> /dev/null) ]]; then
-    hook_com[unstaged]+="%F{blue}●%f"
-  fi
-}
+if [ "$THEME_GIT_ADDED" = "" ]; then
+  THEME_GIT_ADDED="%F{green}✚%F{black}"
+fi
+
+if [ "$THEME_GIT_MODIFIED" = "" ]; then
+  THEME_GIT_MODIFIED="%F{blue}✹%F{black}"
+fi
+
+if [ "$THEME_GIT_DELETED" = "" ]; then
+  THEME_GIT_DELETED="%F{red}✖%F{black}"
+fi
+
+if [ "$THEME_GIT_UNTRACKED" = "" ]; then
+  THEME_GIT_UNTRACKED="%F{yellow}✭%F{black}"
+fi
+
+if [ "$THEME_GIT_RENAMED" = "" ]; then
+  THEME_GIT_RENAMED="➜"
+fi
+
+if [ "$THEME_GIT_UNMERGED" = "" ]; then
+  THEME_GIT_UNMERGED="═"
+fi
+
+ZSH_THEME_GIT_PROMPT_PREFIX=" "
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+ZSH_THEME_GIT_PROMPT_DIRTY=" $THEME_GIT_DIRTY"
+ZSH_THEME_GIT_PROMPT_CLEAN=" $THEME_GIT_CLEAN"
+
+ZSH_THEME_GIT_PROMPT_ADDED="$THEME_GIT_ADDED"
+ZSH_THEME_GIT_PROMPT_MODIFIED="$THEME_GIT_MODIFIED"
+ZSH_THEME_GIT_PROMPT_DELETED="$THEME_GIT_DELETED"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="$THEME_GIT_UNTRACKED"
+ZSH_THEME_GIT_PROMPT_RENAMED="$THEME_GIT_RENAMED"
+ZSH_THEME_GIT_PROMPT_UNMERGED="$THEME_GIT_UNMERGED"
+ZSH_THEME_GIT_PROMPT_AHEAD="⬆"
+ZSH_THEME_GIT_PROMPT_BEHIND="⬇"
+ZSH_THEME_GIT_PROMPT_DIVERGED="⬍"
+
+THEME_GIT_STATUS="%F{blue}%K{black}$(git_prompt_info)$(git_prompt_status) %b%f%k"
 
 RPROMPT_BASE="\${vcs_info_msg_0_}%F{blue}%~%f"
 setopt PROMPT_SUBST
@@ -34,15 +56,13 @@ setopt PROMPT_SUBST
 # Anonymous function to avoid leaking NBSP variable.
 function () {
   if [[ -n "$TMUX" ]]; then
-    # Note use a non-breaking space at the end of the prompt because we can use it as
-    # a find pattern to jump back in tmux.
     local NBSP=' '
-    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f$NBSP"
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)$THEME_GIT_STATUS%F{red}%B%(!.#.$)%b%f$NBSP"
     export ZLE_RPROMPT_INDENT=0
   else
     # Don't bother with ZLE_RPROMPT_INDENT here, because it ends up eating the
     # space after PS1.
-    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f "
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f)$THEME_GIT_STATUS%F{red}%B%(!.#.$)%b%f "
   fi
 }
 
