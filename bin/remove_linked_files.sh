@@ -26,8 +26,6 @@ for name in $SOURCE_DIR/*; do
 	if [ -f "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]; then
 		rm -rf "$destination"
 	fi
-
-	ln -s "$SOURCE_DIR/$filename" "$destination"
 done
 
 exit 0
