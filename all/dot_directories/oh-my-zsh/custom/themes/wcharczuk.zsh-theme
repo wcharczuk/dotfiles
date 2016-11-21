@@ -26,7 +26,7 @@ ZSH_THEME_GIT_PROMPT_DIVERGED="⬍"
 if [ "$(git_prompt_info)" = "" ]; then
   THEME_GIT_STATUS=""
 else
-  THEME_GIT_STATUS="%F{white} %F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)'" %K{white}"
+  THEME_GIT_STATUS="%F{white} %F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)'" %k"
 fi
 
 RPROMPT_BASE="%~%f"
