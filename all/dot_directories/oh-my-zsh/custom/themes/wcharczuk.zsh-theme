@@ -1,7 +1,6 @@
 autoload -U colors
 colors
 
-
 THEME_GIT_CLEAN="✔"
 THEME_GIT_DIRTY="✘"
 THEME_GIT_ADDED="%F{green}✚%F{black}"
@@ -11,7 +10,7 @@ THEME_GIT_UNTRACKED="%F{yellow}✭%F{black}"
 THEME_GIT_RENAMED="➜"
 THEME_GIT_UNMERGED="═"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="\ue0a0 "
+ZSH_THEME_GIT_PROMPT_PREFIX=" \ue0a0 "
 ZSH_THEME_GIT_PROMPT_SUFFIX=" "
 ZSH_THEME_GIT_PROMPT_DIRTY="$THEME_GIT_DIRTY"
 ZSH_THEME_GIT_PROMPT_CLEAN="$THEME_GIT_CLEAN"
@@ -26,25 +25,25 @@ ZSH_THEME_GIT_PROMPT_AHEAD="⬆"
 ZSH_THEME_GIT_PROMPT_BEHIND="⬇"
 ZSH_THEME_GIT_PROMPT_DIVERGED="⬍"
 
-THEME_GIT_STATUS="%F{white}%K{black}$(git_prompt_info)%b%f%k"
+THEME_GIT_STATUS="$(git_prompt_info)"
 
-RPROMPT_BASE="%F{blue}%~%f"
+RPROMPT_BASE="%~%f"
 setopt PROMPT_SUBST
 
 # Anonymous function to avoid leaking NBSP variable.
 function () {
   if [[ -n "$TMUX" ]]; then
     local NBSP=' '
-    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f) $THEME_GIT_STATUS %F{red}%B%(!.#.$)%b%f$NBSP"
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%m %(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f$NBSP"
     export ZLE_RPROMPT_INDENT=0
   else
     # Don't bother with ZLE_RPROMPT_INDENT here, because it ends up eating the
     # space after PS1.
-    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%1~%(?..%F{yellow}%B!%b%f) $THEME_GIT_STATUS %F{red}%B%(!.#.$)%b%f "
+    export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%m %(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f "
   fi
 }
 
-export RPROMPT=$RPROMPT_BASE
+export RPROMPT="%F{blue}$RPROMPT_BASE$THEME_GIT_STATUS%f"
 export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
 
 setopt autocd               # .. is shortcut for cd .. (etc)
