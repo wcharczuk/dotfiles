@@ -1,7 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 plugins=(git)
-ZSH_THEME="wcharczuk"
+ZSH_THEME="powerline"
 
 # For the powerline theme but this may be disabled.
 POWERLINE_DETECT_SSH="true"

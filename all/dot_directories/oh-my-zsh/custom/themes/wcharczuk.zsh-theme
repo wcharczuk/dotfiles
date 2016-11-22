@@ -1,33 +1,21 @@
+autoload -Uz vcs_info
 
 THEME_GIT_CLEAN="✔"
 THEME_GIT_DIRTY="✘"
-THEME_GIT_ADDED="%F{green}✚%F{black}"
-THEME_GIT_MODIFIED="%F{blue}✹%F{black}"
-THEME_GIT_DELETED="%F{red}✖%F{black}"
-THEME_GIT_UNTRACKED="%F{yellow}✭%F{black}"
+THEME_GIT_ADDED="✚"
+THEME_GIT_MODIFIED="✹"
+THEME_GIT_DELETED="✖"
+THEME_GIT_UNTRACKED="✭"
 THEME_GIT_RENAMED="➜"
 THEME_GIT_UNMERGED="═"
 
-ZSH_THEME_GIT_PROMPT_PREFIX=" \ue0a0 "
-ZSH_THEME_GIT_PROMPT_SUFFIX=" "
-ZSH_THEME_GIT_PROMPT_DIRTY="$THEME_GIT_DIRTY"
-ZSH_THEME_GIT_PROMPT_CLEAN="$THEME_GIT_CLEAN"
+THEME_GIT_AHEAD="⬆"
+THEME_GIT_BEHIND="⬇"
+THEME_GIT_DIVERGED="⬍"
 
-ZSH_THEME_GIT_PROMPT_ADDED="$THEME_GIT_ADDED"
-ZSH_THEME_GIT_PROMPT_MODIFIED="$THEME_GIT_MODIFIED"
-ZSH_THEME_GIT_PROMPT_DELETED="$THEME_GIT_DELETED"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="$THEME_GIT_UNTRACKED"
-ZSH_THEME_GIT_PROMPT_RENAMED="$THEME_GIT_RENAMED"
-ZSH_THEME_GIT_PROMPT_UNMERGED="$THEME_GIT_UNMERGED"
-ZSH_THEME_GIT_PROMPT_AHEAD="⬆"
-ZSH_THEME_GIT_PROMPT_BEHIND="⬇"
-ZSH_THEME_GIT_PROMPT_DIVERGED="⬍"
-
-
-THEME_GIT_STATUS="%F{white} %F{black}%K{white}"$'$(git_prompt_info)$(git_prompt_status)'" %k"
+THEME_GIT_STATUS="%F{white} %F{black}%K{white}"$'$(git_prompt_status)'" %k"
 
 RPROMPT_BASE="%~%f"
 
-export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%m %(?..%F{yellow}%B!%b%f)%F{red}%B%(!.#.$)%b%f "
+export PS1="%F{green}${SSH_TTY:+%n@%m}%f%B${SSH_TTY:+:}%b%F{blue}%m %(?..%F{yellow}%B!%b%f) ('$(git_prompt_info)') %F{red}%B%(!.#.$)%b%f "
 export RPROMPT="%F{blue}$RPROMPT_BASE%f$THEME_GIT_STATUS"
-export SPROMPT="zsh: correct %F{red}'%R'%f to %F{red}'%r'%f [%B%Uy%u%bes, %B%Un%u%bo, %B%Ue%u%bdit, %B%Ua%u%bbort]? "
