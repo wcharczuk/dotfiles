@@ -6,15 +6,18 @@
   export PATH="$HOME/bin:$PATH"
   export PATH="/usr/local/sbin:$PATH"
   export PATH="/usr/local/bin:$PATH"
+  export PATH=$HOME/.cargo/bin:$PATH
   export EDITOR="vim"
 
   export WORKSPACE=$HOME/workspace
   export DOTFILES=$WORKSPACE/dotfiles
   export GOPATH=$WORKSPACE/go
   export PATH=$GOPATH/bin:$PATH
+  export CARGO_HOME=$HOME/.cargo
 
   export GOCODE=$GOPATH/src/github.com/wcharczuk/
   export BLENDCODE=$GOPATH/src/github.com/blendlabs
+  export BLENDPRIVCODE=$GOPATH/src/git.blendlabs.com/blend
 #}
 
 #aliases {
@@ -26,14 +29,16 @@
   alias lod="echo ಠ_ಠ"
 
   alias dotfiles="cd $DOTFILES"
-  alias bds="cd $BLENDCODE/connectivity"
-  alias connex="cd $BLENDCODE/connectivity"
-  alias vision="cd $BLENDCODE/vision"
+  alias bds="cd $BLENDPRIVCODE/connectivity"
+  alias connex="cd $BLENDPRIVCODE/connectivity"
+  alias vision="cd $BLENDPRIVCODE/vision"
   alias blend="cd $WORKSPACE/blend"
-  alias smoothie="cd $BLENDCODE/smoothie-consumer"
+  alias smoothie="cd $BLENDPRIVCODE/smoothie-consumer"
   alias spiffy="cd $BLENDCODE/spiffy"
   alias giffy="cd $GOCODE/giffy"
   alias goweb="cd $GOCODE/go-web"
+
+  alias workspace="cd $WORKSPACE"
 
   alias gocode="cd $GOCODE"
   alias blendcode="cd $BLENDCODE"
@@ -62,3 +67,14 @@ if [ -f "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
 fi
 
+if [ -f "$CARGO_HOME/env" ]; then
+	source $CARGO_HOME/env
+fi
+
+if [ -f "$HOME/.ssh/id_rsa" ]; then 
+	ssh-add $HOME/.ssh/id_rsa &> /dev/null
+fi
+
+if [ -f "$HOME/.ssh/blend_id_rsa" ]; then
+	ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
+fi

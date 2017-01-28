@@ -27,3 +27,5 @@
 	statusHints = false
 [url "git@github.com:"]
 	    insteadOf = "https://github.com/"
+[credential]
+	helper = cache

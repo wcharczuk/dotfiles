@@ -35,5 +35,5 @@ clean-common-dot-directories:
 
 install-os-specific:
 	@echo "(${OS}) Running OS Specific Install Steps"
-	$(MAKE) -C $(shell uname) install
+	@$(MAKE) -C $(shell uname) install
 	@echo "(${OS}) Running OS Specific Install Steps Done!"

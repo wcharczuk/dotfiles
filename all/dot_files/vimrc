@@ -60,6 +60,7 @@ call pathogen#helptags()
 	au FileType go nmap <Leader>t <Plug>(go-test)
 	au FileType go nmap gd <Plug>(go-def-tab)
 	let s:tlist_def_go_settings = 'go;g:enum;s:struct;u:union;t:type;' . 'v:variable;f:function'
+	let g:go_fmt_command = "goimports"
 "}
 
 
