@@ -11,7 +11,6 @@
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"telemetry.enableTelemetry": false,
-	"vim.useSystemClipboard": true,
 	"go.buildOnSave": true,
 	"go.lintOnSave": true,
 	"go.vetOnSave": true,
@@ -19,5 +18,8 @@
 	"go.useCodeSnippetsOnFunctionSuggest": false,
 	"go.formatTool": "goimports",
 	"workbench.sideBar.location": "right",
-	"window.zoomLevel": 0
+	"window.zoomLevel": 0,
+	"html.format.wrapLineLength": 0,
+	"html.suggest.angular1": false,
+	"html.format.enable": false
 }

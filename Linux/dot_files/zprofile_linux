@@ -1,7 +1,7 @@
 # Linux specific zsh settings
 
 # go stuff {
-    export GOPATH=$HOME/go
+    export GOPATH=$WORKSPACE/go
     export GOROOT=/usr/local/go
 #}
     
@@ -17,4 +17,6 @@ export PATH=$PATH:$GOPATH/bin
 
 #alias {
     alias ls="ls -a -l --color=always"
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
 #}
