@@ -21,5 +21,9 @@
 	"window.zoomLevel": 0,
 	"html.format.wrapLineLength": 0,
 	"html.suggest.angular1": false,
-	"html.format.enable": false
+	"html.format.enable": false,
+	"workbench.activityBar.visible": false,
+	"workbench.statusBar.visible": true,
+	"vim.useCtrlKeys": false,
+	"editor.wordWrap": true
 }

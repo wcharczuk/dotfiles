@@ -1,6 +1,7 @@
 # Linux specific zsh settings
 
 # go stuff {
+	export $WORKSPACE=$HOME/workspace
     export GOPATH=$WORKSPACE/go
     export GOROOT=/usr/local/go
 #}
@@ -8,6 +9,7 @@
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$WORKSPACE/bin
 
 #{
     export LC_COLLATE="C"
