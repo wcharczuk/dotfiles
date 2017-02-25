@@ -1,7 +1,7 @@
 # Linux specific zsh settings
 
 # go stuff {
-	export $WORKSPACE=$HOME/workspace
+	export WORKSPACE=$HOME/workspace
     export GOPATH=$WORKSPACE/go
     export GOROOT=/usr/local/go
 #}

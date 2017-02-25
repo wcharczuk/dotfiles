@@ -25,5 +25,5 @@
 	"workbench.activityBar.visible": false,
 	"workbench.statusBar.visible": true,
 	"vim.useCtrlKeys": false,
-	"editor.wordWrap": true
+	"editor.wordWrap": false
 }
