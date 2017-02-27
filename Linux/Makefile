@@ -45,9 +45,8 @@ clean-vscode:
 
 install-fonts:
 	@echo "(${OS}) Installing Fonts"
-	@if [ $(id -u) -neq 0 ]; then; echo "(${OS}) Cannot install fonts unless root, aborting."; exit 0; fi
-	@SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/bin/link_all_files.sh
-	@fc-cache -f --verbose
+	@sudo SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/bin/link_all_files.sh
+	@sudo fc-cache -f --verbose
 	@echo "(${OS}) Installing Fonts Done!"
 
 clean-fonts:
