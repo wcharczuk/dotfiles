@@ -4,9 +4,10 @@
 
 #env vars {
   export PATH="$HOME/bin:$PATH"
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="/usr/local/bin:$PATH"
+  export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/bin:$PATH
   export PATH=$HOME/.cargo/bin:$PATH
+  export PATH=$HOME/.nvm/bin:$PATH
   export EDITOR="vim"
 
   export WORKSPACE=$HOME/workspace
@@ -36,7 +37,7 @@
   alias smoothie="cd $BLENDPRIVCODE/smoothie-consumer"
   alias spiffy="cd $BLENDCODE/spiffy"
   alias giffy="cd $GOCODE/giffy"
-  alias goweb="cd $GOCODE/go-web"
+  alias goweb="cd $BLENDCODE/go-web"
 
   alias workspace="cd $WORKSPACE"
 
