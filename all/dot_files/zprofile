@@ -38,11 +38,13 @@
   alias spiffy="cd $BLENDCODE/spiffy"
   alias giffy="cd $GOCODE/giffy"
   alias goweb="cd $BLENDCODE/go-web"
+  alias shortcuts="cd $BLENDPRIVCODE/shortcut-service"
 
   alias workspace="cd $WORKSPACE"
 
   alias gocode="cd $GOCODE"
   alias blendcode="cd $BLENDCODE"
+  alias blendprivcode="cd $BLENDPRIVCODE"
 #}
 
 # ssh aliases {
