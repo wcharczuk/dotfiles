@@ -15,3 +15,9 @@ source $HOME/.zprofile
 
 HISTFILE=$HOME/.zsh-history
 KEYTIMEOUT=1
+
+# added by travis gem
+[ -f /Users/wcharczuk/.travis/travis.sh ] && source /Users/wcharczuk/.travis/travis.sh
+
+export NVM_DIR="/Users/wcharczuk/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
