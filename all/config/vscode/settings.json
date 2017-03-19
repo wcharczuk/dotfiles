@@ -24,6 +24,10 @@
 	"html.format.enable": false,
 	"workbench.activityBar.visible": false,
 	"workbench.statusBar.visible": true,
-	"vim.useCtrlKeys": false,
-	"editor.wordWrap": false
+	"editor.wordWrap": "off",
+	"workbench.colorTheme": "Base16 Ocean Dark",
+	"[javascriptreact]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	}
 }
