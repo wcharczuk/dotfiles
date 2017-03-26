@@ -18,7 +18,7 @@
 	"go.useCodeSnippetsOnFunctionSuggest": false,
 	"go.formatTool": "goimports",
 	"workbench.sideBar.location": "right",
-	"window.zoomLevel": -1,
+	"window.zoomLevel": 0,
 	"html.format.wrapLineLength": 0,
 	"html.suggest.angular1": false,
 	"html.format.enable": false,
