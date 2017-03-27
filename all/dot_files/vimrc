@@ -28,7 +28,6 @@ call pathogen#helptags()
 
     set clipboard=unnamed
 
-
     " Store temporary files in a central spot
     set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
     set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -53,13 +52,6 @@ call pathogen#helptags()
 "}
 
 "go specific stuff{
-	au FileType go nmap <Leader>i <Plug>(go-info)
-	au FileType go nmap <Leader>gd <Plug>(go-doc)
-	au FileType go nmap <Leader>r <Plug>(go-run)
-	au FileType go nmap <Leader>b <Plug>(go-build)
-	au FileType go nmap <Leader>t <Plug>(go-test)
-	au FileType go nmap gd <Plug>(go-def-tab)
-	let s:tlist_def_go_settings = 'go;g:enum;s:struct;u:union;t:type;' . 'v:variable;f:function'
 	let g:go_fmt_command = "goimports"
 "}
 
@@ -80,24 +72,6 @@ call pathogen#helptags()
     noremap <F3> :set hlsearch!<CR>
 "}
 
-
-"numbers plugin toggleable {
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
-
-:au FocusLost * :set number
-:au FocusGained * :set relativenumber
-
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
-"}
-
 "nerdtree {
 nnoremap <C-h> :NERDTreeToggle<cr>
 "}
@@ -110,3 +84,13 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:go_fmt_command = "goimports"
 "}
 
+"register settings {
+nnoremap  y "*y
+nnoremap  Y "*Y
+nnoremap  p "*p
+nnoremap  P "*P
+vnoremap y "*y
+vnoremap Y "*Y
+vnoremap p "*p
+vnoremap P "*P
+"}
