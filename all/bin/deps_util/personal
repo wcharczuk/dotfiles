@@ -1,0 +1,29 @@
+#! /bin/bash
+
+set -e
+
+: ${GOPATH:?"GOPATH is required"}
+: ${GOROOT:?"GOROOT is required"}
+
+CODE_PUBLIC=${GOPATH}/src/github.com/wcharczuk
+
+echo "personal root: ${CODE_PUBLIC}"
+
+if [ ! -d ${CODE_PUBLIC} ]; then
+    echo "creating: ${CODE_PUBLIC}"
+    mkdir -p ${CODE_PUBLIC}
+fi
+
+GOCHART=${CODE_PUBLIC}/go-chart
+if [ ! -d ${GOCHART} ]; then
+    echo "cloning: ${GOCHART}"
+    pushd ${CODE_PUBLIC} &> /dev/null;
+    git clone git@github.com:wcharczuk/go-chart --quiet;
+else 
+    echo "fetching: ${GOCHART}"
+    pushd ${GOCHART} &> /dev/null;
+    git pull --ff-only --quiet;
+fi
+
+popd &> /dev/null;
+exit 0;

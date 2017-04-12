@@ -1,0 +1,23 @@
+#! /bin/bash
+
+set -e
+
+: ${GOPATH:?"GOPATH is required"}
+: ${GOROOT:?"GOROOT is required"}
+: ${DOTFILES:?"DOTFILES is required"}
+
+for i in "$@"
+do
+case $i in
+  --update)
+  bash ${DOTFILES}/all/bin/deps_util/blend;
+  bash ${DOTFILES}/all/bin/deps_util/personal;
+  exit 0;
+  ;;
+  *)
+  echo "deps: a tool for managing our 8 million golang projects"
+  echo "ex: deps --update"
+  echo "--update : update all the dependencies"
+  ;;
+esac
+done
