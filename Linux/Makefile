@@ -3,7 +3,7 @@ PROJECT_ROOT ?= $(shell cd ${PWD} && pwd)
 VSCODE_USER_DIR ?= ${HOME}/.config/Code/User
 USER_FONT_DIR ?= /usr/share/fonts
 
-install: install-dot-files install-dot-directories install-vscode install-fonts
+install: install-dot-files install-dot-directories install-vscode install-fonts apt-install
 
 project-root:
 	@echo "(${OS}) Project Root ${PROJECT_ROOT}"
@@ -46,12 +46,25 @@ clean-vscode:
 install-fonts:
 	@echo "(${OS}) Installing Fonts"
 	@sudo SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/bin/link_all_files.sh
-	@sudo fc-cache -f --verbose
+	@sudo fc-cache -f --verbose &> /dev/null
 	@echo "(${OS}) Installing Fonts Done!"
 
 clean-fonts:
 	@echo "(${OS}) Installing Fonts"
 	@if [ $(id -u) -neq 0 ]; then; echo "(${OS}) Cannot clean fonts unless root, aborting."; exit 0; fi
 	@SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/bin/remove_linked_files.sh
-	@fc-cache -f --verbose
+	@fc-cache -f --verbose &> /dev/null
 	@echo "(${OS}) Installing Fonts Done!"
+
+apt-install: 
+	@echo "(${OS}) Installing apt packages"
+	@sudo apt update
+	@sudo apt upgrade
+	@sudo apt install -y git vim wget curl
+
+i3-install:
+	@/usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2017.01.02_all.deb keyring.deb SHA256:4c3c6685b1181d83efe3a479c5ae38a2a44e23add55e16a328b8c8560bf05e5f
+	@sudo apt install ./keyring.deb
+	@rm keyring.deb
+	@sudo apt update
+	@sudo apt install -y i3 rofi feh i3blocks i3status dmenu i3lock xbacklight conky
