@@ -20,6 +20,12 @@ install-dot-directories:
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_directories TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/bin/link_all_files.sh
 	@echo "(${OS}) Installing Dot Directories Done!"
 
+install-config-directories:
+	@echo "(${OS}) Installing Config Directories"
+	@mkdir -p ${HOME}/.config
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh ${PROJECT_ROOT}/bin/link_all_files.sh
+	@echo "(${OS}) Installing Config Directories Done!"	
+
 clean-dot-files:
 	@echo "(${OS}) Cleaning Dot Files"
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/bin/remove_linked_files.sh
@@ -46,14 +52,14 @@ clean-vscode:
 install-fonts:
 	@echo "(${OS}) Installing Fonts"
 	@sudo SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/bin/link_all_files.sh
-	@sudo fc-cache -f --verbose &> /dev/null
+	@sudo fc-cache -f --verbose > /dev/null
 	@echo "(${OS}) Installing Fonts Done!"
 
 clean-fonts:
 	@echo "(${OS}) Installing Fonts"
 	@if [ $(id -u) -neq 0 ]; then; echo "(${OS}) Cannot clean fonts unless root, aborting."; exit 0; fi
 	@SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/bin/remove_linked_files.sh
-	@fc-cache -f --verbose &> /dev/null
+	@fc-cache -f --verbose > /dev/null
 	@echo "(${OS}) Installing Fonts Done!"
 
 apt-install: 
