@@ -68,3 +68,9 @@ i3-install:
 	@rm keyring.deb
 	@sudo apt update
 	@sudo apt install -y i3 rofi feh i3blocks i3status dmenu i3lock xbacklight conky
+
+chrome-install:
+	@wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+	@sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+	@sudo apt update
+	@sudo apt install -y google-chrome-stable
