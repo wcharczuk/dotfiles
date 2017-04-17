@@ -8,6 +8,8 @@
 set $workspace1 "1: One"
 set $workspace2 "2: Two"
 set $workspace3 "3: Three"
+set $workspace4 "4: Four"
+set $workspace5 "5: Five"
 
 set $base00 #101218
 set $base01 #1f222d
@@ -60,10 +62,10 @@ bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opaci
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

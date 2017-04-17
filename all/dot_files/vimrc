@@ -26,8 +26,6 @@ call pathogen#helptags()
     set sw=4
     set ts=4
 
-    " set clipboard=unnamed
-
     " Store temporary files in a central spot
     set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
     set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -55,7 +53,6 @@ call pathogen#helptags()
 	let g:go_fmt_command = "goimports"
 "}
 
-
 "custom maps {
     nmap <S-Tab> <<
     imap <S-Tab> <Esc><<i
@@ -73,24 +70,24 @@ call pathogen#helptags()
 "}
 
 "nerdtree {
-nnoremap <C-h> :NERDTreeToggle<cr>
+	nnoremap <C-h> :NERDTreeToggle<cr>
 "}
 
 "ctrl-p {
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+	set runtimepath^=~/.vim/bundle/ctrlp.vim
 "}
 
 "go settings {
-let g:go_fmt_command = "goimports"
+	let g:go_fmt_command = "goimports"
 "}
 
 "register settings {
-nnoremap  y "*y
-nnoremap  Y "*Y
-nnoremap  p "*p
-nnoremap  P "*P
-vnoremap y "*y
-vnoremap Y "*Y
-vnoremap p "*p
-vnoremap P "*P
+" nnoremap  y "*y
+" nnoremap  Y "*Y
+" nnoremap  p "*p
+" nnoremap  P "*P
+" vnoremap y "*y
+" vnoremap Y "*Y
+" vnoremap p "*p
+" vnoremap P "*P
 "}
