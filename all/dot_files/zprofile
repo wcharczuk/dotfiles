@@ -32,6 +32,7 @@
   alias dotfiles="cd $DOTFILES"
   alias bds="cd $BLENDPRIVCODE/connectivity"
   alias connex="cd $BLENDPRIVCODE/connectivity"
+  alias infra="cd $WORKSPACE/blend/infrastructure"
   alias vision="cd $BLENDPRIVCODE/vision"
   alias blend="cd $WORKSPACE/blend"
   alias smoothie="cd $BLENDPRIVCODE/smoothie-consumer"
