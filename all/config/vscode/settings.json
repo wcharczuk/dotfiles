@@ -25,9 +25,12 @@
 	"workbench.activityBar.visible": false,
 	"workbench.statusBar.visible": true,
 	"editor.wordWrap": "off",
-	"workbench.colorTheme": "Base16 Ocean Dark",
+	"vim.overrideCopy": false,
+	"vim.useCtrlKeys": false,
+	"keyboard.dispatch": "keyCode",
 	"[javascriptreact]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2
-	}
+	},
+	"workbench.colorTheme": "Base16 Ocean Dark"
 }

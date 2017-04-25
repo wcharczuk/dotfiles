@@ -5,9 +5,11 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-set $workspace1 "1: Terminal"
-set $workspace2 "2: Chrome"
-set $workspace3 "3: Editor"
+set $workspace1 "1: One"
+set $workspace2 "2: Two"
+set $workspace3 "3: Three"
+set $workspace4 "4: Four"
+set $workspace5 "5: Five"
 
 set $base00 #101218
 set $base01 #1f222d
@@ -52,7 +54,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Droid Sans 18"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Droid Sans 18"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -60,10 +62,10 @@ bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opaci
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -84,10 +86,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+shift+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+shift+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -177,7 +179,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Wallpaper
-exec_always --no-startup-id feh --bg-scale /home/wcharczuk/Pictures/Backgrounds/0D8A2320.jpg
+exec_always --no-startup-id feh --bg-scale "/usr/share/backgrounds/Wild Night.jpg"
 
 # Fix things with vm
 exec_always vmware-user-suid-wrapper
