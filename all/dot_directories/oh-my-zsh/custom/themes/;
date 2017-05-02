@@ -10,4 +10,4 @@ precmd() {
 setopt prompt_subst
 
 export PS1="%F{red}%B%(!.#.$)%b%f "
-export RPROMPT='%F{blue}%1~%f %F{red}${vcs_info_msg_0_}%f'
+export RPROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f'
