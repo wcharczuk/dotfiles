@@ -10,6 +10,11 @@ set $workspace2 "2: Two"
 set $workspace3 "3: Three"
 set $workspace4 "4: Four"
 set $workspace5 "5: Five"
+set $workspace6 "6: Six"
+set $workspace7 "7: Seven"
+set $workspace8 "8: Eight"
+set $workspace9 "9: Nine"
+set $workspace10 "10: Ten"
 
 set $base00 #101218
 set $base01 #1f222d

@@ -8,15 +8,15 @@
 	"editor.fontSize": 14,
 	"editor.glyphMargin": true,
 	"editor.wordBasedSuggestions": false,
+	"editor.minimap.enabled": false,
+	"editor.renderIndentGuides": false,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"telemetry.enableTelemetry": false,
-	"go.buildOnSave": true,
-	"go.lintOnSave": true,
-	"go.vetOnSave": true,
 	"go.formatOnSave": true,
 	"go.useCodeSnippetsOnFunctionSuggest": false,
 	"go.formatTool": "goimports",
+	"go.useLanguageServer": false,
 	"workbench.sideBar.location": "right",
 	"window.zoomLevel": 0,
 	"html.format.wrapLineLength": 0,
@@ -25,12 +25,14 @@
 	"workbench.activityBar.visible": false,
 	"workbench.statusBar.visible": true,
 	"editor.wordWrap": "off",
-	"vim.overrideCopy": false,
-	"vim.useCtrlKeys": false,
-	"keyboard.dispatch": "keyCode",
+	"keyboard.dispatch": "code",
 	"[javascriptreact]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2
 	},
-	"workbench.colorTheme": "Base16 Ocean Dark"
+	"workbench.colorTheme": "Base16 Dark Tomorrow",
+	"vim.useCtrlKeys": false,
+	"vim.overrideCopy": false,
+	"vim.surround": false,
+	"vim.disableAnnoyingNeovimMessage": true
 }
