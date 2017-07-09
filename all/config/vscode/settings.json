@@ -12,6 +12,7 @@
 	"editor.renderIndentGuides": false,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
+	"editor.codeLens": false,
 	"telemetry.enableTelemetry": false,
 	"go.formatOnSave": true,
 	"go.useCodeSnippetsOnFunctionSuggest": false,
