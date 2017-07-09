@@ -1,0 +1,4 @@
+#!/bin/bash
+synclient MinSpeed=1.10
+synclient VertEdgeScroll=0
+synclient PalmDetect=1
