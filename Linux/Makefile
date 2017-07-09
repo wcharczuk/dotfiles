@@ -3,7 +3,7 @@ PROJECT_ROOT ?= $(shell cd ${PWD} && pwd)
 VSCODE_USER_DIR ?= ${HOME}/.config/Code/User
 USER_FONT_DIR ?= /usr/share/fonts
 
-install: install-dot-files install-dot-directories vscode-settings install-fonts apt-install
+install: install-dot-files install-dot-directories vscode-settings install-fonts apt-install install-chrome install-vscode install-docker
 
 project-root:
 	@echo "(${OS}) Project Root ${PROJECT_ROOT}"
@@ -66,13 +66,7 @@ apt-install:
 	@echo "(${OS}) Installing apt packages"
 	@sudo apt update
 	@sudo apt upgrade -y
-	@sudo apt install -y git vim wget curl software-properties-common
-
-install-i3:
-	@/usr/lib/apt/apt-helper download-file http://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2017.01.02_all.deb keyring.deb SHA256:4c3c6685b1181d83efe3a479c5ae38a2a44e23add55e16a328b8c8560bf05e5f
-	@sudo apt install ./keyring.deb
-	@rm keyring.deb
-	@sudo apt update
+	@sudo apt install -y git vim wget curl software-properties-common zsh
 	@sudo apt install -y i3 rofi feh i3blocks i3status dmenu i3lock xbacklight conky
 
 install-chrome:
