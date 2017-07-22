@@ -40,7 +40,8 @@
   alias giffy="cd $GOCODE/giffy"
   alias goweb="cd $BLENDCODE/go-web"
   alias shortcuts="cd $BLENDPRIVCODE/shortcut-service"
-
+  alias deployinator="cd $BLENDPRIVCODE/deployinator"
+  alias k8s="cd $WORKSPACE/blend/k8s"
   alias workspace="cd $WORKSPACE"
 
   alias gocode="cd $GOCODE"

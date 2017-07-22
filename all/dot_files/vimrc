@@ -18,10 +18,9 @@ call pathogen#helptags()
     filetype on                         " enable filetype specific plugins
     filetype plugin indent on
     set autoindent   
+	set autowrite
 
 	colorscheme base16-tomorrow-night
-	" let g:Powerline_symbols = 'fancy'
-    " set laststatus=2    " always show powerline statusline
     set encoding=utf-8  " necessary to show unicode glyphs
 
     set sw=4
@@ -51,7 +50,11 @@ call pathogen#helptags()
 "}
 
 "go specific stuff{
+	let g:go_fmt_autosave = 1
 	let g:go_fmt_command = "goimports"
+	let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+	imap <C-S-r> :GoBuild<CR>
+	nmap <C-S-r> :GoBuild<CR>
 "}
 
 "custom maps {
