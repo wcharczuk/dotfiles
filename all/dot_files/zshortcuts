@@ -1,0 +1,25 @@
+function j() {
+	case "$1" in
+		gw) cd $GOPATH/src/github.com/wcharczuk ;;
+		gb) cd $GOPATH/src/github.com/blendlabs ;;
+		bp) cd $GOPATH/src/git.blendlabs.com/blend ;;
+		be) cd $GOPATH/src/git.blendlabs.com/experimental ;;
+		go-web) cd $GOPATH/src/github.com/blendlabs/go-web ;;
+		go-util) cd $GOPATH/src/github.com/blendlabs/go-util ;;
+		go-logger) cd $GOPATH/src/github.com/blendlabs/go-logger ;;
+		go-request) cd $GOPATH/src/github.com/blendlabs/go-request ;;
+		go-chronometer) cd $GOPATH/src/github.com/blendlabs/go-chronometer;;
+		go-proxy) cd $GOPATH/src/github.com/blendlabs/go-proxy ;;
+		go-selector) cd $GOPATH/src/github.com/blendlabs/go-selector ;;
+		spiffy) cd $GOPATH/src/github.com/blendlabs/spiffy ;;
+		connex) cd $GOPATH/src/git.blendlabs.com/blend/connectivity ;;
+		deploy) cd $GOPATH/src/git.blendlabs.com/blend/deployinator ;;
+		gate) cd $GOPATH/src/git.blendlabs.com/blend/gate ;;
+		shortcuts) cd $GOPATH/src/git.blendlabs.com/blend/shortcut-service ;;
+		giffy) cd $GOPATH/src/github.com/wcharczuk/giffy ;;
+		go-chart) cd $GOPATH/src/github.com/wcharczuk/go-chart ;;
+		*) 	echo "invalid shortcut" &> 2
+			return 1
+			;;
+	esac
+}

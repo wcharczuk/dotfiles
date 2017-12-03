@@ -15,49 +15,20 @@
   export GOPATH=$WORKSPACE/go
   export PATH=$GOPATH/bin:$PATH
   export CARGO_HOME=$HOME/.cargo
-
-  export GOCODE=$GOPATH/src/github.com/wcharczuk/
-  export BLENDCODE=$GOPATH/src/github.com/blendlabs
-  export BLENDPRIVCODE=$GOPATH/src/git.blendlabs.com/blend
 #}
 
 #aliases {
   alias ..="cd .."
-
   alias py="python3"
-  alias e="emacs"
-
   alias lod="echo ಠ_ಠ"
 
   alias dotfiles="cd $DOTFILES"
-  alias bds="cd $BLENDPRIVCODE/connectivity"
-  alias connex="cd $BLENDPRIVCODE/connectivity"
-  alias infra="cd $WORKSPACE/blend/infrastructure"
-  alias vision="cd $BLENDPRIVCODE/vision"
-  alias blend="cd $WORKSPACE/blend"
-  alias smoothie="cd $BLENDPRIVCODE/smoothie-consumer"
-  alias spiffy="cd $BLENDCODE/spiffy"
-  alias giffy="cd $GOCODE/giffy"
-  alias goweb="cd $BLENDCODE/go-web"
-  alias shortcuts="cd $BLENDPRIVCODE/shortcut-service"
-
   alias workspace="cd $WORKSPACE"
-
-  alias gocode="cd $GOCODE"
-  alias blendcode="cd $BLENDCODE"
-  alias blendprivcode="cd $BLENDPRIVCODE"
 #}
 
-# ssh aliases {
-    alias ssheast="ssh -i $HOME/.ssh/blendeast.pem"
-    alias sshlive="ssh -i $HOME/.ssh/blendlive.pem"
-    alias sshlogs="ssh -t -i ~/.ssh/blendeast.pem ubuntu@logstore-fluentd-00.sandbox.centrio.com"
-# }
-
-# dokku {
-    alias blend_dokku="ssh dokku@blend-app-container"
-    alias dokku="ssh dokku@linode.charczuk.com"
-# }
+if [ -f "$HOME/.zshortcuts" ]; then 
+	source $HOME/.zshortcuts
+fi
 
 if [ -f "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
