@@ -2,3 +2,7 @@
 synclient MinSpeed=1.10
 synclient VertEdgeScroll=0
 synclient PalmDetect=1
+synclient PalmMinWidth=5
+synclient RTCornerButton=0
+synclient RBCornerButton=0
+synclient ClickPad=0
