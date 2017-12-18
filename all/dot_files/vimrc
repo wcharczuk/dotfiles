@@ -53,8 +53,6 @@ call pathogen#helptags()
 	let g:go_fmt_autosave = 1
 	let g:go_fmt_command = "goimports"
 	let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-	imap <C-S-r> :GoBuild<CR>
-	nmap <C-S-r> :GoBuild<CR>
 "}
 
 "custom maps {
@@ -83,15 +81,4 @@ call pathogen#helptags()
 
 "go settings {
 	let g:go_fmt_command = "goimports"
-"}
-
-"register settings {
-" nnoremap  y "*y
-" nnoremap  Y "*Y
-" nnoremap  p "*p
-" nnoremap  P "*P
-" vnoremap y "*y
-" vnoremap Y "*Y
-" vnoremap p "*p
-" vnoremap P "*P
 "}
