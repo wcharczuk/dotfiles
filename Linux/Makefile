@@ -66,8 +66,9 @@ apt-install:
 	@echo "(${OS}) Installing apt packages"
 	@sudo apt update
 	@sudo apt upgrade -y
-	@sudo apt install -y git vim wget curl software-properties-common zsh
+	@sudo apt install -y vim wget curl software-properties-common zsh
 	@sudo apt install -y i3 rofi feh i3blocks i3status dmenu i3lock xbacklight conky
+	@sudo apt install -y terminator
 
 install-chrome:
 	@wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
