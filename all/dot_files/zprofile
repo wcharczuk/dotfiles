@@ -22,6 +22,8 @@
   alias py="python3"
   alias lod="echo ಠ_ಠ"
   alias j="jump"
+  alias v="nvim"
+  alias vim="nvim"
 
   alias dotfiles="cd $DOTFILES"
   alias workspace="cd $WORKSPACE"
