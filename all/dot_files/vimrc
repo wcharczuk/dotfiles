@@ -1,7 +1,4 @@
-set shell=/bin/bash
-
-call pathogen#infect()
-call pathogen#helptags()
+set shell=/usr/local/bin/zsh
 
 "basic formatting {         
 	set cursorline
@@ -10,7 +7,7 @@ call pathogen#helptags()
 	set mouse=a
 	set number
 	set nowrap
-	set hlsearch
+	set nohlsearch
 
 	set timeoutlen=0 ttimeoutlen=0
 
@@ -51,6 +48,9 @@ call pathogen#helptags()
 	imap <C-e> <Esc>$i
 
 	imap <C-Return> <CR><CR><C-o>k<TAB>
+
+	nmap <Esc> :noh<Esc>
+	imap <Esc> :noh<Esc>
 
 	noremap <F4> :pclose<CR>
 	noremap <F3> :set hlsearch!<CR>

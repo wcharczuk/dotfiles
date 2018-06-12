@@ -8,7 +8,7 @@
   export PATH=/usr/local/bin:$PATH
   export PATH=$HOME/.cargo/bin:$PATH
   export PATH=$HOME/.nvm/bin:$PATH
-  export EDITOR="vim"
+  export EDITOR="nvim"
 
   export WORKSPACE=$HOME/workspace
   export DOTFILES=$WORKSPACE/dotfiles

@@ -1,4 +1,4 @@
-"nvim plugins {
+"plugins {
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -11,46 +11,25 @@ Plug 'fatih/vim-go'
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zchee/deoplete-jedi'
-Plug 'leafgarland/typescript-vim'
-Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
-
+ 
 Plug 'Soares/base16.nvim'
 call plug#end()
 "}
 
 "general {
-set background=dark
-"colorscheme tomorrow
-
-set autoindent
-set smartindent
-set autoread
-set autowrite
-set autowriteall
+set background=light
 set clipboard=unnamedplus
-set completeopt-=preview
-"set cursorline
 set encoding=utf-8
-set list
-set listchars=tab:\|\ ,trail:▫
 set nospell
 set noswapfile
 set nowrap
-set noerrorbells
-set novisualbell
 set number
-set relativenumber
-set ruler
-set formatoptions=tcqronj
-set title
 set updatetime=100
 set timeoutlen=0 ttimeoutlen=0
 
 set expandtab
-set softtabstop=4
-set tabstop=4
+set sw=2
+set ts=2
 
 if has('nvim')
     let g:python_host_prog = '/usr/bin/python'
@@ -64,8 +43,6 @@ endif
 syntax enable
 filetype on
 
-let mapleader = ','
-
 "searching {
 set incsearch
 set hlsearch
@@ -75,45 +52,22 @@ if has('nvim')
 endif
 "}
 
-
-"binds {
-map <leader>c :nohlsearch<cr>
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-"}
-
 "splits {
 set splitbelow
 set splitright
 
 nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>h :split<cr>
-
-nnoremap <leader>q :close<cr>
 "}
 
 "plugin specific {
 if has('nvim')
-    " Enable deoplete on startup
     let g:deoplete#enable_at_startup = 1
 	let g:deoplete#sources#go#pointer = 1
 endif
 
-
-" Disable deoplete when in multi cursor mode
-function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
-endfunction
-
-function! Multiple_cursors_after()
-    let b:deoplete_disable_auto_complete = 0
-endfunction
-
 let g:ctrlp_map = ''
 nnoremap <c-p> :FZF<cr>
-
 map  <leader><leader>w <Plug>(easymotion-bd-w)
 nmap <leader><leader>w <Plug>(easymotion-overwin-w)
 "}
@@ -130,6 +84,7 @@ nmap <leader><leader>w <Plug>(easymotion-overwin-w)
 	let g:go_auto_sameids = 1
 	let g:go_addtags_transform = "snakecase"
 	let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+  let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
 	"}
 
 	"protos {
@@ -195,5 +150,9 @@ nmap <leader><leader>w <Plug>(easymotion-overwin-w)
 	au FileType yaml set shiftwidth=2
 	au FileType yaml set softtabstop=2
 	au FileType yaml set tabstop=2	
+	au FileType yml set expandtab
+	au FileType yml set shiftwidth=2
+	au FileType yml set softtabstop=2
+	au FileType yml set tabstop=2	
 	"}
 "}

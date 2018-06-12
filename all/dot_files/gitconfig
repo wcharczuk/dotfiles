@@ -5,7 +5,7 @@
     status = auto
     ui = auto
 [core]
-    editor = vim
+    editor = nvim
 [merge]
     tool = opendiff
 [user]
