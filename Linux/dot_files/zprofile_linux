@@ -1,4 +1,5 @@
 # Linux specific zsh settings
+# ideally as little as possible lives in these platform specific profiles.
 
 # go stuff {
 	export WORKSPACE=$HOME/workspace

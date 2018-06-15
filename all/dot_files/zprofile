@@ -29,10 +29,6 @@
   alias workspace="cd $WORKSPACE"
 #}
 
-if [ -f "$HOME/.zshortcuts" ]; then 
-	source $HOME/.zshortcuts
-fi
-
 if [ -f "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
 fi
@@ -45,14 +41,12 @@ if [ -f "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
 fi
 
-if [ -f "$CARGO_HOME/env" ]; then
-	source $CARGO_HOME/env
-fi
+function addsshkeys() {
+    if [ -f "$HOME/.ssh/id_rsa" ]; then 
+	    ssh-add $HOME/.ssh/id_rsa &> /dev/null
+    fi
 
-if [ -f "$HOME/.ssh/id_rsa" ]; then 
-	ssh-add $HOME/.ssh/id_rsa &> /dev/null
-fi
-
-if [ -f "$HOME/.ssh/blend_id_rsa" ]; then
-	ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
-fi
+    if [ -f "$HOME/.ssh/blend_id_rsa" ]; then
+        ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
+    fi
+}
