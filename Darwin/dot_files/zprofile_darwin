@@ -2,15 +2,12 @@
 # ideally as little as possible lives in the platform specific profiles.
 
 #env vars {
-  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+  export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
   export TERM="xterm-256color"
   export HOMEBREW_NO_ANALYTICS=1
 
   #go stuff
-  GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
-  export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
-  export PATH="$PATH:$GOROOT/bin"
-
+  export PATH="$PATH:/usr/local/opt/go/libexec/bin"
   export PGDATA=/usr/local/var/postgres
 #}
 

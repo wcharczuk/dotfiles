@@ -1,20 +1,14 @@
-# zsh specific stuff 
-	KEYTIMEOUT=1
-# }
-
 #env vars {
-  export PATH="$HOME/bin:$PATH"
+  export EDITOR="nvim"
+
   export PATH=/usr/local/sbin:$PATH
   export PATH=/usr/local/bin:$PATH
-  export PATH=$HOME/.cargo/bin:$PATH
-  export PATH=$HOME/.nvm/bin:$PATH
-  export EDITOR="nvim"
+  export PATH=$HOME/bin:$PATH
+  export PATH=$PATH:$GOPATH/bin
 
   export WORKSPACE=$HOME/workspace
   export DOTFILES=$WORKSPACE/dotfiles
   export GOPATH=$WORKSPACE/go
-  export PATH=$GOPATH/bin:$PATH
-  export CARGO_HOME=$HOME/.cargo
 #}
 
 #aliases {
@@ -24,9 +18,17 @@
   alias j="jump"
   alias v="nvim"
   alias vim="nvim"
+  alias k="kubectl"
+  alias ss="smokectl"
+#}
 
-  alias dotfiles="cd $DOTFILES"
-  alias workspace="cd $WORKSPACE"
+#git aliases {
+  alias ga="git add ."
+  alias gcam="git commit -am"
+  alias gcm="git commit -m"
+  alias gnb="git checkout -b"
+  alias gb="git checkout"
+  alias gp="git pull"
 #}
 
 if [ -f "$HOME/.zsecure" ]; then
