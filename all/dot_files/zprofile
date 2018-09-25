@@ -12,14 +12,20 @@
 #}
 
 #aliases {
-  alias ..="cd .."
   alias py="python3"
   alias lod="echo ಠ_ಠ"
   alias j="jump"
   alias v="nvim"
   alias vim="nvim"
   alias k="kubectl"
-  alias ss="smokectl"
+  alias e="emacs"
+#}
+
+#helpers{
+alias q="ls | grep --color -i"
+alias Q="ls | grep --color"
+alias qq="find . | grep -i"
+alias QQ="find . | grep"
 #}
 
 #git aliases {
