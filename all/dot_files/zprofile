@@ -19,6 +19,7 @@
   alias vim="nvim"
   alias k="kubectl"
   alias e="emacs"
+  alias t="tmux"
 #}
 
 #helpers{
