@@ -1,0 +1,35 @@
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+    ui = auto
+[core]
+    editor = nvim
+[merge]
+    tool = opendiff
+[user]
+  name = Will Charczuk
+	email = will@blendlabs.com
+[alias]
+  a = add .
+  co = checkout
+  c = commit
+  st = status
+  br = branch
+  nb = checkout -b
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+[push]
+    default = simple
+[advice]
+	statusHints = false
+[url "git@github.com:"]
+  insteadOf = "https://github.com/"
+[url "git@git.blendlabs.com:"]
+  insteadOf = "https://git.blendlabs.com"
+[credential]
+	helper = cache

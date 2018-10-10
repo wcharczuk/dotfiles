@@ -1,0 +1,18 @@
+# Darwin specific zsh profile
+# ideally as little as possible lives in the platform specific profiles.
+
+#env vars {
+  export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
+  export TERM="xterm-256color"
+  export HOMEBREW_NO_ANALYTICS=1
+
+  #go stuff
+  export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+  export PGDATA=/usr/local/var/postgres
+#}
+
+#aliases {
+  alias ls="ls -a -l -G"
+  alias lss="ls -G"
+  alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+#}

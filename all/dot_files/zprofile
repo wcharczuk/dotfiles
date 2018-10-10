@@ -1,0 +1,63 @@
+#env vars {
+  export EDITOR="nvim"
+
+  export PATH=/usr/local/sbin:$PATH
+  export PATH=/usr/local/bin:$PATH
+  export PATH=$HOME/bin:$PATH
+  export PATH=$PATH:$GOPATH/bin
+
+  export WORKSPACE=$HOME/workspace
+  export DOTFILES=$WORKSPACE/dotfiles
+  export GOPATH=$WORKSPACE/go
+#}
+
+#aliases {
+  alias py="python3"
+  alias lod="echo ಠ_ಠ"
+  alias j="jump"
+  alias v="nvim"
+  alias vim="nvim"
+  alias k="kubectl"
+  alias e="emacs"
+  alias t="tmux"
+#}
+
+#helpers{
+  alias q="ls | grep --color -i"
+  alias Q="ls | grep --color"
+  alias qq="find . | grep -i"
+  alias QQ="find . | grep"
+  alias attach="tmux attach -t work || tmux new-session -s work"
+  alias detach="tmux detach"
+#}
+
+#git aliases {
+  alias ga="git add ."
+  alias gcam="git commit -am"
+  alias gcm="git commit -m"
+  alias gnb="git checkout -b"
+  alias gb="git checkout"
+  alias gp="git pull"
+#}
+
+if [ -f "$HOME/.zsecure" ]; then
+    source $HOME/.zsecure
+fi
+
+if [ -f "$HOME/.zprofile_linux" ]; then
+    source $HOME/.zprofile_linux
+fi
+
+if [ -f "$HOME/.zprofile_darwin" ]; then
+    source $HOME/.zprofile_darwin
+fi
+
+function addsshkeys() {
+    if [ -f "$HOME/.ssh/id_rsa" ]; then 
+	    ssh-add $HOME/.ssh/id_rsa &> /dev/null
+    fi
+
+    if [ -f "$HOME/.ssh/blend_id_rsa" ]; then
+        ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
+    fi
+}

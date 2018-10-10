@@ -1,0 +1,16 @@
+HISTFILE=$HOME/.zsh-history
+KEYTIMEOUT=1
+
+export ZSH=$HOME/.zsh
+
+plugins=(
+	git 
+	jump 
+	osx
+)
+ZSH_THEME="wcharczuk"
+
+source $ZSH/zsh_init.sh
+source $HOME/.zprofile
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

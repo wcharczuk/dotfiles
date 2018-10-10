@@ -1,0 +1,11 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+	{ "key": "ctrl+left",               "command": "cursorWordLeft", 			"when": "editorTextFocus" },
+	{ "key": "ctrl+right",              "command": "cursorWordRight", 			"when": "editorTextFocus" },
+	{ "key": "shift+ctrl+left",         "command": "cursorWordLeftSelect", 		"when": "editorTextFocus" },
+	{ "key": "shift+ctrl+right",        "command": "cursorWordRightSelect", 	"when": "editorTextFocus" },
+	{ "key": "shift+cmd+f",             "command": "editor.action.startFindReplaceAction" },
+	{ "key": "shift+cmd+enter",         "command": "editor.action.replaceAll", 	"when": "editorFocus" },
+	{ "key": "mouse4",                  "command": "workbench.action.navigateBack" },
+	{ "key": "mouse5",                  "command": "workbench.action.navigateForward" }
+]
