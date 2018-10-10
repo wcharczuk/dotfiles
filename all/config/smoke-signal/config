@@ -1,8 +1,0 @@
-current: dev
-endpoints:
-- name: dev
-  url: http://localhost:8080
-- name: sandbox
-  url: https://smoke-signal.sandbox.k8s.centrio.com
-- name: test
-  url: http://smoke-signal.test.k8s.centrio.com
