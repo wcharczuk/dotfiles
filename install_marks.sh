@@ -21,7 +21,7 @@ fi
 
 for name in $SOURCE_DIR/*; do
 	filename=`basename "$name"`
-  source="$(eval "$(cat $name)")"
+  source=$(eval echo $(cat $name)) 
 	destination="$TARGET_DIR/$filename"
 
 	if [ -f "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]; then
