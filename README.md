@@ -1,3 +1,4 @@
 # These are my dotfiles.
 
-use them as you feel
+Use them as you feel.
+

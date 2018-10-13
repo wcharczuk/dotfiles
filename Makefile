@@ -24,9 +24,9 @@ dot-directories:
 	@echo "(all) Installing Dot Directories Done!"
 
 config-directories:
-	@echo "(all) Installing Dot Directories"	
-	@SOURCE_DIR=${PWD}/all/config TARGET_DIR=${HOME}/.config FILE_LEADER="." sh links_create.sh
-	@echo "(all) Installing Dot Directories Done!"
+	@echo "(all) Installing .config Directories"	
+	@SOURCE_DIR=${PWD}/all/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh links_create.sh
+	@echo "(all) Installing .config Directories Done!"
 
 clean-dot-files:
 	@echo "(all) Cleaning Dot Files"
@@ -39,9 +39,9 @@ clean-dot-directories:
 	@echo "(all) Cleaning Dot Directories Done!"
 
 clean-config-directories:
-	@echo "(all) Cleaning Dot Directories"
-	@SOURCE_DIR=${PWD}/all/config TARGET_DIR=${HOME}/.config FILE_LEADER="." sh links_remove.sh
-	@echo "(all) Cleaning Dot Directories Done!"
+	@echo "(all) Cleaning .config Directories"
+	@SOURCE_DIR=${PWD}/all/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh links_remove.sh
+	@echo "(all) Cleaning .config Directories Done!"
 
 os-specific:
 	@echo "(${OS}) Running OS Specific Install Steps"

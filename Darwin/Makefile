@@ -56,3 +56,6 @@ clean-config-directories:
 	@echo "(${OS}) Cleaning Dot Directories"
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config FILE_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
 	@echo "(${OS}) Cleaning Dot Directories Done!"
+
+clean-default-keybindings:
+	@rm -f ${KEYBINDINGS_DIR}/DefaultKeyBinding.dict
