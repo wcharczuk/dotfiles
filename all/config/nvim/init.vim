@@ -1,13 +1,14 @@
 "plugins {
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'zchee/deoplete-jedi'
-Plug 'Soares/base16.nvim'
-call plug#end()
+  call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'fatih/vim-go'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'scrooloose/nerdtree'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'Soares/base16.nvim'
+    Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+  call plug#end()
 "}
 
 "general {
@@ -56,10 +57,6 @@ let g:ctrlp_map = ''
 nnoremap <c-p> :FZF<cr>
 "}
 
-"leader commands {
-nmap <leader>s :w
-"}
-
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab
@@ -73,6 +70,17 @@ nmap <leader>s :w
 	let g:go_addtags_transform = "snakecase"
 	let g:go_metalinter_autosave_enabled = ['vet', 'golint']
   let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
+
+  " from https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_fields = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_types = 1
+  
 	"}
 
 	"protos {
