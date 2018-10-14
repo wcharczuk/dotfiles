@@ -7,12 +7,15 @@
     Plug 'scrooloose/nerdtree'
     Plug 'zchee/deoplete-jedi'
     Plug 'Soares/base16.nvim'
+    Plug 'kaicataldo/material.vim'
     Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
   call plug#end()
 "}
 
 "general {
 set background=dark
+colorscheme material
+let g:material_theme_style = 'dark'
 set clipboard=unnamedplus
 set encoding=utf-8
 set nospell
@@ -57,6 +60,14 @@ let g:ctrlp_map = ''
 nnoremap <c-p> :FZF<cr>
 "}
 
+" theme stuff
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab
@@ -80,7 +91,6 @@ nnoremap <c-p> :FZF<cr>
   let g:go_highlight_operators = 1
   let g:go_highlight_structs = 1
   let g:go_highlight_types = 1
-  
 	"}
 
 	"protos {
