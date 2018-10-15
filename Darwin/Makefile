@@ -59,3 +59,13 @@ clean-config-directories:
 
 clean-default-keybindings:
 	@rm -f ${KEYBINDINGS_DIR}/DefaultKeyBinding.dict
+
+install-vscode:
+	@echo "(${OS}) Installing VSCode Settings & Keybindings"
+	@SOURCE_DIR=${PROJECT_ROOT}/all/vscode TARGET_DIR="${HOME}/Library/Application Support/Code/User" FILE_LEADER="" sh ${PROJECT_ROOT}/links_create.sh
+	@echo "(${OS}) Installing VSCode Settings & Keybindings Done!"
+
+clean-vscode:
+	@echo "(${OS}) Installing VSCode Settings & Keybindings"
+	@SOURCE_DIR=${PROJECT_ROOT}/all/vscode TARGET_DIR="${HOME}/Library/Application Support/Code/User" FILE_LEADER="" sh ${PROJECT_ROOT}/links_remove.sh
+	@echo "(${OS}) Installing VSCode Settings & Keybindings Done!"
