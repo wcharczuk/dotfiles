@@ -1,5 +1,6 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'fatih/vim-go'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -9,6 +10,8 @@
     Plug 'Soares/base16.nvim'
     Plug 'kaicataldo/material.vim'
     Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+    Plug 'Shougo/neosnippet.vim'
+    Plug 'Shougo/neosnippet-snippets'
   call plug#end()
 "}
 
@@ -68,13 +71,26 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+" snippets {
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+" }
+
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab
 	au FileType go set shiftwidth=4
 	au FileType go set softtabstop=4
 	au FileType go set tabstop=4
-	let g:go_fmt_autosave=1
+	let g:go_fmt_autosave = 1
 	let g:go_fmt_command = "goimports"
 	let g:go_auto_type_info = 1
 	let g:go_auto_sameids = 1

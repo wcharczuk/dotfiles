@@ -3,9 +3,9 @@ PROJECT_ROOT ?= $(shell cd ${PWD} && pwd)
 KEYBINDINGS_DIR ?= ${HOME}/Library/KeyBindings
 VSCODE_USER_DIR ?= "${HOME}/Library/Application Support/Code/User"
 
-install: project-root install-default-keybindings install-fonts install-dot-files install-dot-directories install-config-directories
+install: project-root install-default-keybindings install-fonts install-dot-files install-dot-directories install-config-directories install-vscode
 
-uninstall: clean-dot-files clean-dot-directories clean-default-keybindings
+uninstall: clean-dot-files clean-dot-directories clean-default-keybindings clean-vscode
 
 project-root:
 	@echo "(${OS}) Project Root ${PROJECT_ROOT}"
