@@ -3,15 +3,20 @@ PROJECT_ROOT ?= $(shell pwd)
 
 all: install
 
-install: show-os dot-files dot-directories config-directories marks os-specific
+install: show-os bin-scripts dot-files dot-directories config-directories marks os-specific
 
-clean: show-os clean-dot-files clean-dot-directories clean-config-directories clean-marks clean-os-specific
+clean: show-os clean-bin-scripts clean-dot-files clean-dot-directories clean-config-directories clean-marks clean-os-specific
 
 show-os: 
 	@echo "Current OS is (${OS})"
 
 project-root:
 	@cd ${OS} && make project-root && cd ..
+
+bin-scripts:
+	@echo "(all) Installing Bin Scripts"
+	@SOURCE_DIR=${PWD}/all/bin TARGET_DIR=${HOME}/bin FILE_LEADER="" sh links_create.sh
+	@echo "(all) Installing Bin Scripts Done!"
 
 dot-files:
 	@echo "(all) Installing Dot Files"
@@ -32,6 +37,11 @@ marks:
 	@echo "(all) Installing Marks"
 	@SOURCE_DIR=${PWD}/all/marks TARGET_DIR=${HOME}/.marks FILE_LEADER="" sh install_marks.sh
 	@echo "(all) Installing Marks Done!"
+
+clean-dot-files:
+	@echo "(all) Cleaning Bin Scripts"
+	@SOURCE_DIR=${PWD}/all/bin TARGET_DIR=${HOME}/bin FILE_LEADER="" sh links_remove.sh
+	@echo "(all) Cleaning Bin Scripts Done!"
 
 clean-dot-files:
 	@echo "(all) Cleaning Dot Files"
