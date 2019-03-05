@@ -1,5 +1,6 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'kaicataldo/material.vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'fatih/vim-go'
     Plug 'ctrlpvim/ctrlp.vim'
