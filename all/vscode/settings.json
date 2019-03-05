@@ -11,7 +11,7 @@
 	"breadcrumbs.enabled": true,
 	"update.showReleaseNotes": false,
 	"editor.formatOnSave": true,
-	"editor.autoClosingBrackets": "languageDefined",
+	"editor.autoClosingBrackets": "never",
 	"editor.quickSuggestionsDelay": 250,
 	"editor.roundedSelection": false,
 	"editor.fontFamily": "Source Code Pro",
@@ -29,7 +29,7 @@
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
 	"keyboard.dispatch": "code",
-	"vim.useCtrlKeys": false,
+	"vim.useCtrlKeys": true,
 	"vim.overrideCopy": false,
 	"vim.surround": false,
 	"[javascriptreact]": {
@@ -37,9 +37,19 @@
 		"editor.tabSize": 2
 	},
 	"html.format.wrapLineLength": 0,
-	"html.suggest.angular1": false,
 	"html.format.enable": false,
-	"go.useCodeSnippetsOnFunctionSuggest": false,
-	"go.useLanguageServer": false,
-	"telemetry.enableTelemetry": false
+	"telemetry.enableTelemetry": false,
+	"vim.handleKeys": {
+		"<C-d>": true,
+		"<C-[": true,
+		"<C-a>": false,
+		"<C-f>": false
+	},
+	"telemetry.enableCrashReporter": false,
+	"terminal.integrated.env.osx": {
+		"GO111MODULES": "auto",
+	},
+	"go.toolsEnvVars": {
+		"GO111MODULES": "auto",
+	}
 }
