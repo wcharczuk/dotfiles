@@ -3,6 +3,13 @@ PROJECT_ROOT ?= $(shell pwd)
 
 all: install
 
+test: 
+	@docker build -f Dockerfile.test -t dotfiles/test:latest .
+	@docker run -it dotfiles/test:latest
+
+verify:
+	@echo "OK!"
+
 install: show-os bin-scripts dot-files dot-directories config-directories marks os-specific
 
 clean: show-os clean-bin-scripts clean-dot-files clean-dot-directories clean-config-directories clean-marks clean-os-specific
