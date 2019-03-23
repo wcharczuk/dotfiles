@@ -1,16 +1,10 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
     Plug 'kaicataldo/material.vim'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'fatih/vim-go'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'scrooloose/nerdtree'
-    Plug 'zchee/deoplete-jedi'
-    Plug 'Soares/base16.nvim'
-    Plug 'kaicataldo/material.vim'
-    Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
   call plug#end()
@@ -35,7 +29,7 @@ set ts=2
 
 if has('nvim')
   let g:python_host_prog = '/usr/bin/python'
-  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:python3_host_prog = '/usr/bin/python3'
 endif
 
 if has('mouse')
