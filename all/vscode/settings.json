@@ -1,15 +1,16 @@
 // Place your settings in this file to overwrite the default settings
 {
-	"window.zoomLevel": 0,
-	"workbench.colorTheme": "Material Theme Darker High Contrast",
-	"workbench.sideBar.location": "left",
-	"workbench.activityBar.visible": false,
-	"workbench.statusBar.visible": true,
-	"workbench.tips.enabled": false,
-	"workbench.editor.enablePreview": false,
-	"workbench.editor.enablePreviewFromQuickOpen": false,
+	// general settings
 	"breadcrumbs.enabled": true,
+	"keyboard.dispatch": "code",
 	"update.showReleaseNotes": false,
+	"telemetry.enableCrashReporter": false,
+	"telemetry.enableTelemetry": false,
+	"window.zoomLevel": 0,
+	// files settings
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	// editor settings
 	"editor.formatOnSave": true,
 	"editor.autoClosingBrackets": "never",
 	"editor.quickSuggestionsDelay": 250,
@@ -21,35 +22,65 @@
 	"editor.minimap.enabled": false,
 	"editor.renderIndentGuides": true,
 	"editor.insertSpaces": false,
-	"editor.detectIndentation": false,
 	"editor.codeLens": false,
 	"editor.dragAndDrop": false,
 	"editor.lineNumbers": "relative",
 	"editor.wordWrap": "off",
-	"files.trimFinalNewlines": true,
-	"files.trimTrailingWhitespace": true,
-	"keyboard.dispatch": "code",
+	// html settings
+	"html.format.wrapLineLength": 0,
+	"html.format.enable": false,
+	// workbench settings
+	"workbench.colorTheme": "Material Theme Darker High Contrast",
+	"workbench.sideBar.location": "left",
+	"workbench.activityBar.visible": false,
+	"workbench.statusBar.visible": true,
+	"workbench.tips.enabled": false,
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.enablePreviewFromQuickOpen": false,
+	// vim settings
 	"vim.useCtrlKeys": true,
 	"vim.overrideCopy": false,
 	"vim.surround": false,
-	"[javascriptreact]": {
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2
-	},
-	"html.format.wrapLineLength": 0,
-	"html.format.enable": false,
-	"telemetry.enableTelemetry": false,
 	"vim.handleKeys": {
 		"<C-d>": true,
 		"<C-[": true,
 		"<C-a>": false,
 		"<C-f>": false
 	},
-	"telemetry.enableCrashReporter": false,
-	"terminal.integrated.env.osx": {
-		"GO111MODULES": "auto",
+	// language specific settings
+	"[javascriptreact]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
 	},
-	"go.toolsEnvVars": {
-		"GO111MODULES": "auto",
+	"[go]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4,
+		"editor.rulers": [
+			120,
+			160
+		]
+	},
+	"[terraform]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"files.exclude": {
+		"**/.git": true,
+		"**/.svn": true,
+		"**/.hg": true,
+		"**/CVS": true,
+		"**/.DS_Store": true,
+		"**/tmp": true,
+		"**/node_modules": true,
+		"**/bower_components": true,
+		"**/dist": true
+	},
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/node_modules/**": true,
+		"**/tmp/**": true,
+		"**/bower_components/**": true,
+		"**/dist/**": true
 	}
 }

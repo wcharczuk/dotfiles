@@ -34,6 +34,7 @@
 
 #git aliases {
   alias ga="git add ."
+  alias gs="git status"
   alias gcam="git commit -am"
   alias gcm="git commit -m"
   alias gnb="git checkout -b"
@@ -41,6 +42,11 @@
   alias gp="git pull"
   alias gm="git checkout master"
 #}
+
+export NVM_DIR="$HOME/.nvm"
+if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then 
+    source "/usr/local/opt/nvm/nvm.sh"
+fi
 
 if [ -f "$HOME/.zsecure" ]; then
     source $HOME/.zsecure

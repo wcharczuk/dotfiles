@@ -27,6 +27,7 @@
   dump = cat-file -p
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
+  undo = checkout --
 
 [push]
   default = simple

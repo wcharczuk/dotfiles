@@ -1,21 +1,24 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'fatih/vim-go'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree'
-    Plug 'zchee/deoplete-jedi'
-    Plug 'Soares/base16.nvim'
     Plug 'kaicataldo/material.vim'
-    Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
   call plug#end()
 "}
 
 "general {
+
+if (has("nvim"))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 set background=dark
 colorscheme material
 let g:material_theme_style = 'dark'
@@ -34,7 +37,7 @@ set ts=2
 
 if has('nvim')
   let g:python_host_prog = '/usr/bin/python'
-  let g:python3_host_prog = '/usr/local/bin/python3'
+  let g:python3_host_prog = '/usr/bin/python3'
 endif
 
 if has('mouse')
@@ -51,25 +54,13 @@ set hlsearch
 if has('nvim')
   set inccommand=split
 endif
+
 "}
 
 "plugin specific {
-if has('nvim')
-  let g:deoplete#enable_at_startup = 1
-	let g:deoplete#sources#go#pointer = 1
-endif
-
 let g:ctrlp_map = ''
 nnoremap <c-p> :FZF<cr>
 "}
-
-" theme stuff
-if (has("nvim"))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 " snippets {
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
