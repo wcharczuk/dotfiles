@@ -165,10 +165,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -182,12 +182,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Wallpaper
-exec_always --no-startup-id feh --bg-scale "$HOME/.fehbg"
-
-# Fix things with vm
-exec_always vmware-user-suid-wrapper
 
 set $bg-color #2f343f
 set $inactive-bg-color #2f343f
@@ -220,4 +214,6 @@ bar {
     }
 }
 
+exec_always --no-startup-id "$HOME/.fehbg"
+exec vmware-user-suid-wrapper
 exec compton -f 
