@@ -3,7 +3,7 @@
 
 #env vars {
   export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
-  export TERM="xterm-256color"
+  # export TERM="xterm-256color"
   export HOMEBREW_NO_ANALYTICS=1
 
   #go stuff

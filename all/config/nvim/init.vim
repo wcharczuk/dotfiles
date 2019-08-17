@@ -1,5 +1,7 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'fatih/vim-go'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -15,64 +17,56 @@ if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
-if (has("termguicolors"))
-  set termguicolors
-endif
+syntax enable
+filetype on
 
+set termguicolors
 set background=dark
 colorscheme material
 let g:material_theme_style = 'dark'
 set clipboard=unnamedplus
 set encoding=utf-8
+
 set nospell
 set noswapfile
 set nowrap
 set number
-set updatetime=100
-set timeoutlen=0 ttimeoutlen=0
-
-set expandtab
-set sw=2
-set ts=2
 
 if has('nvim')
-  let g:python_host_prog = '/usr/bin/python'
-  let g:python3_host_prog = '/usr/bin/python3'
+  let g:python_host_prog = '/usr/local/bin/python'
+  let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
 if has('mouse')
   set mouse=a
 endif
 
-syntax enable
-filetype on
-
-"searching {
-set incsearch
-set hlsearch
-
-if has('nvim')
-  set inccommand=split
-endif
-
-"}
-
 "plugin specific {
+"
+" fzf
 let g:ctrlp_map = ''
 nnoremap <c-p> :FZF<cr>
-"}
 
-" snippets {
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" nerdtree
+nnoremap <silent> <C-h> :NERDTreeToggle<CR>
 
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" deoplete
+nnoremap <silent><expr> <C-space> deoplete#manual_complete()
+inoremap <silent><expr> <C-space> deoplete#manual_complete()
+
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
+set completeopt+=noselect
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_auto_close_preview = 1
+
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
 " }
 
 "filetypes {
@@ -87,18 +81,22 @@ endif
 	let g:go_auto_sameids = 1
 	let g:go_addtags_transform = "snakecase"
 	let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-  let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
+	let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
 
-  " from https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
-  let g:go_highlight_build_constraints = 1
-  let g:go_highlight_extra_types = 1
-  let g:go_highlight_fields = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_operators = 1
-  let g:go_highlight_structs = 1
-  let g:go_highlight_types = 1
-	"}
+	" these are coloring options; more colors are good.
+	let g:go_highlight_build_constraints = 1
+	let g:go_highlight_extra_types = 1
+	" let g:go_highlight_fields = 1 " not enabled by vscode
+	let g:go_highlight_format_strings = 1
+	let g:go_highlight_functions = 1
+	" let g:go_highlight_function_parameters = 1 " not enabled by vscode
+	let g:go_highlight_function_calls = 1
+	let g:go_highlight_methods = 1
+	let g:go_highlight_operators = 1
+	let g:go_highlight_structs = 1
+	let g:go_highlight_types = 1
+	" let g:go_highlight_variable_declarations = 1 " not enabled by vscode
+	" let g:go_highlight_variable_assignments = 1 " not enabled by vscode
 
 	"protos {
 	au FileType proto set noexpandtab

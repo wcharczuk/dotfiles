@@ -45,20 +45,39 @@
 		"<C-d>": true,
 		"<C-[": true,
 		"<C-a>": false,
-		"<C-f>": false
+		"<C-f>": false,
+		"<C-g>": false,
 	},
 	// language specific settings
 	"[javascriptreact]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2
 	},
+	"go.useLanguageServer": false,
+	"go.formatTool": "goreturns",
+	"go.enableCodeLens": {
+		"references": false,
+		"runtest": true
+	},
+	"go.coverageDecorator": {
+		"type": "highlight",
+		"coveredHighlightColor": "rgba(64,128,128,0.5)",
+		"uncoveredHighlightColor": "rgba(128,64,64,0.25)",
+		"coveredGutterStyle": "blockblue",
+		"uncoveredGutterStyle": "slashyellow"
+	},
+	"go.coverageOptions": "showBothCoveredAndUncoveredCode",
+	"go.coverOnSave": false,
+	"go.coverOnSingleTest": false,
+	"go.coverOnTestPackage": true,
 	"[go]": {
 		"editor.insertSpaces": false,
+		"editor.formatOnSave": true,
 		"editor.tabSize": 4,
 		"editor.rulers": [
 			120,
 			160
-		]
+		],
 	},
 	"[terraform]": {
 		"editor.insertSpaces": true,
@@ -82,5 +101,8 @@
 		"**/tmp/**": true,
 		"**/bower_components/**": true,
 		"**/dist/**": true
-	}
+	},
+	"debug.console.fontSize": 10,
+	"terminal.integrated.fontSize": 10,
+	"editor.autoClosingQuotes": "never",
 }
