@@ -7,6 +7,7 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'kaicataldo/material.vim'
   call plug#end()
 "}
@@ -19,6 +20,11 @@ endif
 
 syntax enable
 filetype on
+
+set ts=4
+set softtabstop=2
+set sw=4
+set expandtab
 
 set termguicolors
 set background=dark
@@ -53,11 +59,13 @@ nnoremap <silent> <C-h> :NERDTreeToggle<CR>
 " deoplete
 nnoremap <silent><expr> <C-space> deoplete#manual_complete()
 inoremap <silent><expr> <C-space> deoplete#manual_complete()
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " neocomplete like
-set completeopt+=noinsert
+" set completeopt+=noinsert
 " deoplete.nvim recommend
-set completeopt+=noselect
+" set completeopt+=noselect
+set completeopt-=preview
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_completion_start_length = 1
@@ -77,10 +85,17 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 	au FileType go set tabstop=4
 	let g:go_fmt_autosave = 1
 	let g:go_fmt_command = "goreturns"
-	let g:go_auto_type_info = 1
-	let g:go_auto_sameids = 1
+
+    let g:go_metalinter_autosave = 1
+    let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+    let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+
+	" disable showing type info
+	let g:go_auto_type_info = 0
+	" disable highlighting same identifiers
+	let g:go_auto_sameids = 0
+
 	let g:go_addtags_transform = "snakecase"
-	let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 	let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
 
 	" these are coloring options; more colors are good.
