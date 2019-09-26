@@ -22,6 +22,7 @@
   st = status
   br = branch
   nb = checkout -b
+  cp = commit --amend --no-edit
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
