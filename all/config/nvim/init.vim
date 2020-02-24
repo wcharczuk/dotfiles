@@ -39,7 +39,8 @@ set encoding=utf-8
 set nospell
 set noswapfile
 set nowrap
-set number
+set number " set line numbers
+set rnu " relative line numbers (with number makes the display 'hybrid')
 
 if filereadable('/usr/bin/python3')
   let g:python_host_prog = '/usr/bin/python'
@@ -126,6 +127,7 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 	let g:go_highlight_types = 1
 	" let g:go_highlight_variable_declarations = 1 " not enabled by vscode
 	" let g:go_highlight_variable_assignments = 1 " not enabled by vscode
+    autocmd Syntax go normal zR
 
 	"protos {
 	au FileType proto set noexpandtab
