@@ -43,10 +43,6 @@
   alias gm="git checkout master"
 #}
 
-export NVM_DIR="$HOME/.nvm"
-if [ -s "/usr/local/opt/nvm/nvm.sh" ]; then 
-    source "/usr/local/opt/nvm/nvm.sh"
-fi
 
 if [ -f "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
@@ -69,3 +65,12 @@ function addsshkeys() {
         ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
     fi
 }
+
+#nvm {
+export NVM_DIR="$HOME/.nvm"
+if [ -s "${NVM_DIR}/nvm.sh" ]; then
+    source "${NVM_DIR}/nvm.sh"
+elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
+    source "/usr/local/opt/nvm/nvm.sh"
+fi
+#}

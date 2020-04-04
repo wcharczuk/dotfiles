@@ -23,6 +23,7 @@ filetype on
 
 " enable folding via syntax
 set foldmethod=syntax
+set foldlevelstart=99
 
 set ts=4
 set softtabstop=2
