@@ -22,6 +22,7 @@
   st = status
   br = branch
   nb = checkout -b
+  cp0 = commit -am \"progress checkpoint: use 'git cp' from here on\"
   cp = commit --amend --no-edit
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t

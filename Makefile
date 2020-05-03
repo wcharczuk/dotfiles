@@ -45,10 +45,10 @@ marks:
 	@SOURCE_DIR=${PWD}/all/marks TARGET_DIR=${HOME}/.marks FILE_LEADER="" sh install_marks.sh
 	@echo "(all) Installing Marks Done!"
 
-clean-dot-files:
-	@echo "(all) Cleaning Bin Scripts"
+clean-dot-bin:
+	@echo "(all) Cleaning Bin"
 	@SOURCE_DIR=${PWD}/all/bin TARGET_DIR=${HOME}/bin FILE_LEADER="" sh links_remove.sh
-	@echo "(all) Cleaning Bin Scripts Done!"
+	@echo "(all) Cleaning Bin Done!"
 
 clean-dot-files:
 	@echo "(all) Cleaning Dot Files"

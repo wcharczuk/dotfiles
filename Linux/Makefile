@@ -26,19 +26,6 @@ install-config-directories:
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh ${PROJECT_ROOT}/links_create.sh
 	@echo "(${OS}) Installing Config Directories Done!"	
 
-vscode-settings:
-	@echo "(${OS}) Installing VSCode Files"
-	@mkdir -p ${VSCODE_USER_DIR}
-	@if [ -e "${VSCODE_USER_DIR}/settings.json" ] || [ -L "${VSCODE_USER_DIR}/settings.json" ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
-	@ln -s ${PROJECT_ROOT}/all/config/vscode/settings.json ${VSCODE_USER_DIR}/settings.json
-	@echo "(${OS}) Installing VSCode Files Done!"
-
-install-fonts:
-	@echo "(${OS}) Installing Fonts"
-	@sudo SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/links_create.sh
-	@sudo fc-cache -f --verbose > /dev/null
-	@echo "(${OS}) Installing Fonts Done!"
-
 clean-dot-files:
 	@echo "(${OS}) Cleaning Dot Files"
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
@@ -53,18 +40,6 @@ clean-config-directories:
 	@echo "(${OS}) Cleaning Config Directories"
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh ${PROJECT_ROOT}/links_remove.sh
 	@echo "(${OS}) Cleaning Config Directories Done!"	
-
-clean-fonts:
-	@echo "(${OS}) Installing Fonts"
-	@if [ $(id -u) -neq 0 ]; then; echo "(${OS}) Cannot clean fonts unless root, aborting."; exit 0; fi
-	@SOURCE_DIR=${PROJECT_ROOT}/all/assets/fonts TARGET_DIR=${USER_FONT_DIR} FILE_LEADER="" sh ${PROJECT_ROOT}/links_remove.sh
-	@fc-cache -f --verbose > /dev/null
-	@echo "(${OS}) Installing Fonts Done!"
-
-clean-vscode:
-	@echo "(${OS}) Cleaning VSCode Files"
-	@if [ -e "${VSCODE_USER_DIR}/settings.json" ]; then rm ${VSCODE_USER_DIR}/settings.json; fi
-	@echo "(${OS}) Cleaning VSCode Files Done!"
 
 ################################################################################
 # app installation
