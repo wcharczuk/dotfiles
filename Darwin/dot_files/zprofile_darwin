@@ -3,6 +3,8 @@
 
 #env vars {
   export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
+  export PATH="/usr/local/bin:$PATH"
+  export PATH="$PATH:$HOME/workspace/mongodb/bin"
   # export TERM="xterm-256color"
   export HOMEBREW_NO_ANALYTICS=1
 

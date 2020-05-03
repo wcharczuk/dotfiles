@@ -21,10 +21,6 @@
 		"when": "editorTextFocus"
 	},
 	{
-		"key": "shift+cmd+f",
-		"command": "editor.action.startFindReplaceAction"
-	},
-	{
 		"key": "shift+cmd+enter",
 		"command": "editor.action.replaceAll",
 		"when": "editorFocus"

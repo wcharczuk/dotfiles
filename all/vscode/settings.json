@@ -27,9 +27,13 @@
 	"editor.dragAndDrop": false,
 	"editor.lineNumbers": "relative",
 	"editor.wordWrap": "off",
-	// go settings
+	"editor.quickSuggestions": {
+		"other": false,
+		"comments": false,
+		"strings": false
+	},
+	"editor.suggestOnTriggerCharacters": false,
 	"go.autocompleteUnimportedPackages": true,
-	// html settings
 	"html.format.wrapLineLength": 0,
 	"html.format.enable": false,
 	"workbench.sideBar.location": "left",
@@ -58,6 +62,13 @@
 		"editor.insertSpaces": false,
 		"editor.formatOnSave": true,
 		"editor.tabSize": 4,
+		"files.trimFinalNewlines": false, // handled by gofmt
+		"files.trimTrailingWhitespace": false, // handled by gofmt
+	},
+	"[html]": {
+		"editor.insertSpaces": true,
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
 	},
 	"[terraform]": {
 		"editor.insertSpaces": true,
@@ -72,7 +83,7 @@
 		"**/tmp": true,
 		"**/node_modules": true,
 		"**/bower_components": true,
-		"**/dist": true
+		"**/dist": false
 	},
 	"files.watcherExclude": {
 		"**/.git/objects/**": true,
@@ -80,46 +91,31 @@
 		"**/node_modules/**": true,
 		"**/tmp/**": true,
 		"**/bower_components/**": true,
-		"**/dist/**": true
+		"**/dist/**": false
 	},
 	"editor.acceptSuggestionOnCommitCharacter": false,
-	"editor.quickSuggestionsDelay": 500,
-	"editor.suggest.insertHighlight": true,
 	"editor.suggest.maxVisibleSuggestions": 15,
 	"editor.suggest.showCustomcolors": false,
 	"editor.suggest.showColors": false,
-	"editor.suggest.showEnumMembers": false,
 	"editor.suggest.showEnums": false,
-	"editor.suggest.showEvents": false,
 	"editor.suggest.showFiles": false,
 	"editor.suggest.showSnippets": false,
 	"editor.suggest.showWords": false,
-	"editor.suggestOnTriggerCharacters": false,
-	"workbench.colorTheme": "Material Theme Darker",
-	"workbench.colorCustomizations": {
-		"activityBarBadge.background": "#00BCD4",
-		"activityBar.activeBorder": "#00BCD4",
-		"list.activeSelectionForeground": "#00BCD4",
-		"list.inactiveSelectionForeground": "#00BCD4",
-		"list.highlightForeground": "#00BCD4",
-		"scrollbarSlider.activeBackground": "#00BCD450",
-		"editorSuggestWidget.highlightForeground": "#00BCD4",
-		"textLink.foreground": "#00BCD4",
-		"progressBar.background": "#00BCD4",
-		"pickerGroup.foreground": "#00BCD4",
-		"tab.activeBorder": "#00BCD4",
-		"notificationLink.foreground": "#00BCD4",
-		"editorWidget.resizeBorder": "#00BCD4",
-		"editorWidget.border": "#00BCD4",
-		"settings.modifiedItemIndicator": "#00BCD4",
-		"settings.headerForeground": "#00BCD4",
-		"panelTitle.activeBorder": "#00BCD4",
-		"breadcrumb.activeSelectionForeground": "#00BCD4",
-		"menu.selectionForeground": "#00BCD4",
-		"menubar.selectionForeground": "#00BCD4",
-		"editor.findMatchBorder": "#00BCD4",
-		"selection.background": "#00BCD440"
-	},
+	"workbench.colorTheme": "Material Theme Darker High Contrast",
 	"materialTheme.accent": "Cyan",
-	"go.useLanguageServer": true,
+	"go.useLanguageServer": false,
+	"editor.renderWhitespace": "none",
+	"vim.useSystemClipboard": false,
+	"editor.tabCompletion": "on",
+	"editor.suggest.insertMode": "replace",
+	"editor.suggest.filterGraceful": false,
+	"editor.suggest.snippetsPreventQuickSuggestions": false,
+	"editor.suggest.statusBar.visible": true,
+	"editor.suggestSelection": "first",
+	"go.gocodeAutoBuild": true,
+	"go.gotoSymbol.includeImports": true,
+	"go.useCodeSnippetsOnFunctionSuggest": true,
+	"go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
+	"go.useGoProxyToCheckForToolUpdates": false,
+	"extensions.ignoreRecommendations": false,
 }
