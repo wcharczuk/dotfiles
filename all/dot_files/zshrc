@@ -12,3 +12,5 @@ ZSH_THEME="wcharczuk"
 
 source $ZSH/zsh_init.sh
 source $HOME/.zprofile
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

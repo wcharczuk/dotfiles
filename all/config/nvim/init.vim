@@ -1,7 +1,5 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
     Plug 'fatih/vim-go'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
