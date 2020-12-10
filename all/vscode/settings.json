@@ -96,19 +96,42 @@
 	"editor.acceptSuggestionOnCommitCharacter": false,
 	"workbench.colorTheme": "Community Material Theme Darker High Contrast",
 	"materialTheme.accent": "Graphite",
-	"go.useLanguageServer": true,
 	"editor.renderWhitespace": "none",
 	"vim.useSystemClipboard": false,
 	"editor.tabCompletion": "on",
 	"editor.suggest.insertMode": "replace",
 	"editor.suggest.filterGraceful": false,
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
-	"editor.suggest.statusBar.visible": true,
 	"editor.suggestSelection": "first",
-	"go.gocodeAutoBuild": true,
-	"go.gotoSymbol.includeImports": true,
-	"go.useCodeSnippetsOnFunctionSuggest": true,
-	"go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
-	"go.useGoProxyToCheckForToolUpdates": false,
+	"go.lintTool": "golangci-lint",
+	"go.lintFlags": [
+		"--exclude-use-default=false",
+		"--config=${workspaceFolder}/.golangci.yml",
+	],
 	"extensions.ignoreRecommendations": false,
+	"explorer.confirmDelete": false,
+	"[js]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+	},
+	"[typescript]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+	},
+	"[jsonc]": {
+		"editor.tabSize": 2,
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"strings": true
+		},
+		"editor.suggest.insertMode": "replace"
+	},
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"gopls": {
+		"usePlaceholders": true,
+		"completeUnimported": true
+	},
+	"go.coverOnTestPackage": false,
+	"go.formatTool": "goimports",
+	"go.useLanguageServer": true,
 }
