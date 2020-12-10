@@ -2,9 +2,9 @@
 
 set -e
 
-if [ ! -d "/Volumes/Multimedia/Photos/Lightroom" ]; then
+if [ ! -d "/Volumes/Main/Photos/Lightroom" ]; then
     echo "Media drive is not mounted, aborting."
     exit 1;
 fi
 
-rsync -avz /Volumes/Multimedia/Photos/Lightroom $HOME/Pictures
+rsync -avz /Volumes/Main/Photos/Lightroom $HOME/Pictures
