@@ -16,10 +16,16 @@ export PATH=$PATH:$WORKSPACE/bin
   export LC_COLLATE="C"
   export LC_ALL="C.UTF-8"
   export LANG="en_US.UTF-8"
+  export AWS_VAULT_BACKEND="file"
 #}
 
 #alias {
   alias ls="ls -a -l --color=always"
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
+  alias aws-auth="aws-vault exec sandbox --backend=file --no-session --duration=6h"
 #}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

@@ -74,3 +74,5 @@ elif [ -s "/usr/local/opt/nvm/nvm.sh" ]; then
     source "/usr/local/opt/nvm/nvm.sh"
 fi
 #}
+
+export PATH="$HOME/.cargo/bin:$PATH"

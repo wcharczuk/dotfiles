@@ -1,6 +1,7 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
     Plug 'fatih/vim-go'
+    Plug 'dense-analysis/ale'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
@@ -70,24 +71,10 @@ nnoremap <c-p> :FZF<cr>
 " nerdtree
 nnoremap <silent> <C-h> :NERDTreeToggle<CR>
 
-" deoplete
-nnoremap <silent><expr> <C-space> deoplete#manual_complete()
-inoremap <silent><expr> <C-space> deoplete#manual_complete()
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" neocomplete like
-" set completeopt+=noinsert
-" deoplete.nvim recommend
-" set completeopt+=noselect
-set completeopt-=preview
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_completion_start_length = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_auto_close_preview = 1
-
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+if has('nvim')
+    " Enable deoplete on startup
+    let g:deoplete#enable_at_startup = 1
+endif
 
 " }
 
@@ -100,9 +87,14 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 	let g:go_fmt_autosave = 1
 	let g:go_fmt_command = "goreturns"
 
+    " Error and warning signs.
+    let g:ale_sign_error = '⤫'
+    let g:ale_sign_warning = '⚠'
+    let g:airline#extensions#ale#enabled = 1
+
     let g:go_metalinter_autosave = 1
     let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-    let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+    let g:go_metalinter_enabled = ['vet', 'golint', 'staticcheck', 'ineffassign']
 
 	" disable showing type info
 	let g:go_auto_type_info = 0
@@ -112,21 +104,17 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 	let g:go_addtags_transform = "snakecase"
 	let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
 
-	" these are coloring options; more colors are good.
 	let g:go_highlight_build_constraints = 1
 	let g:go_highlight_extra_types = 1
-	" let g:go_highlight_fields = 1 " not enabled by vscode
 	let g:go_highlight_format_strings = 1
 	let g:go_highlight_functions = 1
-	" let g:go_highlight_function_parameters = 1 " not enabled by vscode
 	let g:go_highlight_function_calls = 1
 	let g:go_highlight_methods = 1
 	let g:go_highlight_operators = 1
 	let g:go_highlight_structs = 1
 	let g:go_highlight_types = 1
-	" let g:go_highlight_variable_declarations = 1 " not enabled by vscode
-	" let g:go_highlight_variable_assignments = 1 " not enabled by vscode
     autocmd Syntax go normal zR
+    "}
 
 	"protos {
 	au FileType proto set noexpandtab
