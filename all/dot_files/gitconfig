@@ -11,10 +11,6 @@
 [merge]
   tool = opendiff
 
-[user]
-  name = Will Charczuk
-  email = will@blend.com
-
 [alias]
   a = add .
   co = checkout
@@ -48,3 +44,6 @@
 
 [init]
 	defaultBranch = main
+[user]
+	email = will@blend.com
+	name = Will Charczuk

@@ -1,13 +1,21 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
+
+    " go stuff
     Plug 'fatih/vim-go'
-    Plug 'dense-analysis/ale'
+
+    " typescript stuff 
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+
+    " general plugins
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'scrooloose/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'kaicataldo/material.vim'
+    Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   call plug#end()
 "}
 
@@ -17,8 +25,18 @@ if (has("nvim"))
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
 
+" For Neovim > 0.1.5 and Vim > patch 7.4.1799 - https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162
+" Based on Vim patch 7.4.1770 (`guicolors` option) - https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
+" https://github.com/neovim/neovim/wiki/Following-HEAD#20160511
+if (has('termguicolors'))
+  set termguicolors
+endif
+
 syntax enable
 filetype on
+let g:material_theme_style = 'darker-community'
+let g:material_terminal_italics = 1
+colorscheme material
 
 " enable folding via syntax
 set foldmethod=syntax
@@ -30,9 +48,6 @@ set sw=4
 set expandtab
 
 set termguicolors
-set background=dark
-colorscheme material
-let g:material_theme_style = 'dark'
 set clipboard=unnamedplus
 set encoding=utf-8
 
@@ -78,42 +93,46 @@ endif
 
 " }
 
+" coc {
+let g:coc_global_extensions = [
+    \ 'coc-go',
+    \ 'coc-tsserver',
+    \ 'coc-json',
+    \ 'coc-snippets',
+    \]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+nnoremap <silent> K :call CocAction('doHover')<CR>
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-space> 
+      \ pumvisible() ? "\<C-n>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+let g:coc_selectmode_mapping = 0
+" }
+
+" vim-go {
+let g:go_lst_type = "quickfix"
+let g:go_test_timeout = "10s"
+let g:go_fmt_command = "goimports"
+" }
+
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab
 	au FileType go set shiftwidth=4
 	au FileType go set softtabstop=4
 	au FileType go set tabstop=4
-	let g:go_fmt_autosave = 1
-	let g:go_fmt_command = "goreturns"
-
-    " Error and warning signs.
-    let g:ale_sign_error = '⤫'
-    let g:ale_sign_warning = '⚠'
-    let g:airline#extensions#ale#enabled = 1
-
-    let g:go_metalinter_autosave = 1
-    let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-    let g:go_metalinter_enabled = ['vet', 'golint', 'staticcheck', 'ineffassign']
-
-	" disable showing type info
-	let g:go_auto_type_info = 0
-	" disable highlighting same identifiers
-	let g:go_auto_sameids = 0
-
-	let g:go_addtags_transform = "snakecase"
-	let g:go_fold_enable = ['block', 'import', 'varconst', 'package_comment']
-
-	let g:go_highlight_build_constraints = 1
-	let g:go_highlight_extra_types = 1
-	let g:go_highlight_format_strings = 1
-	let g:go_highlight_functions = 1
-	let g:go_highlight_function_calls = 1
-	let g:go_highlight_methods = 1
-	let g:go_highlight_operators = 1
-	let g:go_highlight_structs = 1
-	let g:go_highlight_types = 1
-    autocmd Syntax go normal zR
     "}
 
 	"protos {
