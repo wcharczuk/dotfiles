@@ -57,6 +57,9 @@ set nowrap
 set number " set line numbers
 set rnu " relative line numbers (with number makes the display 'hybrid')
 
+" remaps
+vnoremap p "_dP
+
 if filereadable('/usr/bin/python3')
   let g:python_host_prog = '/usr/bin/python'
 endif
@@ -85,6 +88,7 @@ nnoremap <c-p> :FZF<cr>
 
 " nerdtree
 nnoremap <silent> <C-h> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 if has('nvim')
     " Enable deoplete on startup
@@ -115,8 +119,8 @@ inoremap <silent><expr> <c-space>
       \ pumvisible() ? "\<C-n>" :
       \ coc#refresh()
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:coc_selectmode_mapping = 0
 " }
