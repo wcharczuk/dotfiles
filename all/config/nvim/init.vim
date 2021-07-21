@@ -1,20 +1,5 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
-
-    " go stuff
-    Plug 'fatih/vim-go'
-
-    " typescript stuff 
-    Plug 'pangloss/vim-javascript'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'peitalin/vim-jsx-typescript'
-    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
-    " general plugins
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'scrooloose/nerdtree'
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
   call plug#end()
 "}
