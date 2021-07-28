@@ -9,5 +9,11 @@ precmd() {
 
 setopt prompt_subst
 
-export PS1="%F{red}%B%(!.#.$)%b%f "
+local hostname="%{$fg_bold[black]%}%m"
+
+if [[ -n $SSH_CONNECTION ]]; then
+    export PS1="${hostname} %F{red}%B%(!.#.$)%b%f "
+else 
+    export PS1="%F{red}%B%(!.#.$)%b%f "
+fi
 export RPROMPT='%F{blue}%1~%f %F{red}${vcs_info_msg_0_}%f'
