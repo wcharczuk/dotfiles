@@ -1,3 +1,14 @@
+[user]
+    email = wcharczuk@users.noreply.github.com
+	name = Will Charczuk
+    signingkey = 9AB10BCECCBAE859
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    program = gpg
+
 [color]
   branch = auto
   diff = auto
@@ -43,7 +54,5 @@
   helper = cache
 
 [init]
-	defaultBranch = main
-[user]
-	email = will@blend.com
-	name = Will Charczuk
+    defaultBranch = main
+
