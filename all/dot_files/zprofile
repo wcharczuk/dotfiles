@@ -43,6 +43,7 @@
 
 #kubectl aliases {
   alias k="kubectl"
+  alias mk="microk8s kubectl"
   alias kb="kubectl -n blend"
   alias kbs="kubectl -n blend-system"
   alias kss="kubectl -n smoke-signal"
