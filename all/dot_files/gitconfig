@@ -4,7 +4,7 @@
     signingkey = 9AB10BCECCBAE859
 
 [commit]
-    gpgsign = true
+    gpgsign = false
 
 [gpg]
     program = gpg

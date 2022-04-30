@@ -94,7 +94,7 @@
 		"**/dist/**": false
 	},
 	"editor.acceptSuggestionOnCommitCharacter": false,
-	"workbench.colorTheme": "Community Material Theme Darker High Contrast",
+	"workbench.colorTheme": "GitHub Dark",
 	"materialTheme.accent": "Graphite",
 	"editor.renderWhitespace": "none",
 	"vim.useSystemClipboard": false,
