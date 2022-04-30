@@ -3,12 +3,6 @@
 	name = Will Charczuk
     signingkey = 9AB10BCECCBAE859
 
-[commit]
-    gpgsign = false
-
-[gpg]
-    program = gpg
-
 [color]
   branch = auto
   diff = auto

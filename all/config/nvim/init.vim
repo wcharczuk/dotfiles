@@ -1,6 +1,11 @@
 "plugins {
   call plug#begin('~/.local/share/nvim/plugged')
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
   call plug#end()
 "}
 
@@ -68,16 +73,17 @@ endif
 "plugin specific {
 "
 " fzf
-let g:ctrlp_map = ''
-nnoremap <c-p> :FZF<cr>
-
-" nerdtree
-nnoremap <silent> <C-h> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+nnoremap <c-p> :Files<cr>
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
 if has('nvim')
     " Enable deoplete on startup
     let g:deoplete#enable_at_startup = 1
+    let g:go_fmt_command = 'goimports'
+    let g:go_fmt_options = {
+        \ 'goimports': '-local golang.blend.com',
+    \ }
 endif
 
 " }
@@ -103,9 +109,6 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <c-space> 
       \ pumvisible() ? "\<C-n>" :
       \ coc#refresh()
-
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let g:coc_selectmode_mapping = 0
 " }
