@@ -7,8 +7,6 @@
   export PATH=/usr/local/sbin:$PATH
   export PATH=/usr/local/bin:$PATH
   export PATH=$HOME/bin:$PATH
-
-  export GPG_TTY=$(tty)
 #}
 
 #aliases {
@@ -51,16 +49,17 @@
   alias kss="kubectl -n smoke-signal"
 #}
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -f "$HOME/.zsecure" ]; then
+if [ -s "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
 fi
 
-if [ -f "$HOME/.zprofile_linux" ]; then
+if [ -s "$HOME/.zprofile_linux" ]; then
     source $HOME/.zprofile_linux
 fi
 
-if [ -f "$HOME/.zprofile_darwin" ]; then
+if [ -s "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
 fi
 
@@ -68,8 +67,10 @@ function addsshkeys() {
     if [ -f "$HOME/.ssh/id_rsa" ]; then 
 	    ssh-add $HOME/.ssh/id_rsa &> /dev/null
     fi
-
     if [ -f "$HOME/.ssh/blend_id_rsa" ]; then
         ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
     fi
 }
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+
