@@ -58,3 +58,4 @@
 
 [pull]
 	ff = only
+	rebase = false
