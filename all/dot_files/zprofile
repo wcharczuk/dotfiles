@@ -21,13 +21,8 @@
 #}
 
 #helpers{
-  alias q="ls | grep --color -i"
-  alias Q="ls | grep --color"
-  alias qq="find . | grep -i"
-  alias QQ="find . | grep"
   alias attach="tmux attach -t work || tmux new-session -s work"
   alias detach="tmux detach"
-  alias vault-local="VAULT_ADDR=http://127.0.0.1:8200 vault"
 #}
 
 #git aliases {
@@ -38,15 +33,12 @@
   alias gnb="git checkout -b"
   alias gb="git checkout"
   alias gp="git pull"
-  alias gm="git checkout master"
+  alias gm="git checkout main"
 #}
 
 #kubectl aliases {
   alias k="kubectl"
   alias mk="microk8s kubectl"
-  alias kb="kubectl -n blend"
-  alias kbs="kubectl -n blend-system"
-  alias kss="kubectl -n smoke-signal"
 #}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -63,14 +55,14 @@ if [ -s "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
 fi
 
+if [ -s "$HOME/.zprofile_watershed" ]; then
+    source $HOME/.zprofile_watershed
+fi
+
 function addsshkeys() {
     if [ -f "$HOME/.ssh/id_rsa" ]; then 
 	    ssh-add $HOME/.ssh/id_rsa &> /dev/null
     fi
-    if [ -f "$HOME/.ssh/blend_id_rsa" ]; then
-        ssh-add $HOME/.ssh/blend_id_rsa &> /dev/null
-    fi
 }
 
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-

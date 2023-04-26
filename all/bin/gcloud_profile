@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+set -e
+
+if ! command -v gcloud &> /dev/null
+then
+    exit
+fi
+
+gcloud_profile=$(gcloud config configurations list --quiet --filter=is_active=true --format=json | jq .[0].properties.core.project | sed s/\"//g )
+echo "$gcloud_profile"

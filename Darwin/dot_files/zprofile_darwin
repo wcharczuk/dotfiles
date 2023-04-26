@@ -1,20 +1,34 @@
 # Darwin specific zsh profile
 # ideally as little as possible lives in the platform specific profiles.
 
+# homebrew specific stuff
+eval $(/opt/homebrew/bin/brew shellenv)
+
 #env vars {
-  export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
-  export PATH="/usr/local/bin:$PATH"
-  export PATH="$PATH:$HOME/workspace/mongodb/bin"
-  # export TERM="xterm-256color"
-  export HOMEBREW_NO_ANALYTICS=1
+export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+# export TERM="xterm-256color"
+export HOMEBREW_NO_ANALYTICS=1
 
-  #go stuff
-  export PATH="$PATH:/usr/local/opt/go/libexec/bin"
-  export PGDATA=/usr/local/var/postgres
+#go stuff
+export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+export PGDATA=/usr/local/var/postgres
+
+export GOPATH=$WORKSPACE/go
+export PATH=$GOPATH/bin:$PATH
 #}
 
-#aliases {
-  alias ls="ls -a -l -G"
-  alias lss="ls -G"
-  alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-#}
+# aliases {
+alias l="ls -alG"
+alias ls="ls -alG"
+alias ll="ls -alG"
+# }
+
+# gcloud stuff {
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+# }
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
