@@ -4,12 +4,11 @@
 	"breadcrumbs.enabled": true,
 	"keyboard.dispatch": "code",
 	"update.showReleaseNotes": false,
-	"telemetry.enableCrashReporter": false,
-	"telemetry.enableTelemetry": false,
-	"window.zoomLevel": 0,
+	"editor.gotoLocation.multipleDefinitions": "goto",
 	// files settings
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
+	"vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
 	// editor settings
 	"editor.autoClosingQuotes": "never",
 	"editor.autoClosingBrackets": "never",
@@ -19,7 +18,6 @@
 	"editor.formatOnSave": true,
 	"editor.wordBasedSuggestions": false,
 	"editor.minimap.enabled": false,
-	"editor.renderIndentGuides": false,
 	"editor.roundedSelection": false,
 	"editor.insertSpaces": false,
 	"editor.lightbulb.enabled": false,
@@ -94,7 +92,6 @@
 		"**/dist/**": false
 	},
 	"editor.acceptSuggestionOnCommitCharacter": false,
-	"workbench.colorTheme": "GitHub Dark",
 	"materialTheme.accent": "Graphite",
 	"editor.renderWhitespace": "none",
 	"vim.useSystemClipboard": false,
@@ -108,7 +105,7 @@
 		"--exclude-use-default=false",
 		"--config=${workspaceFolder}/.golangci.yml",
 	],
-	"extensions.ignoreRecommendations": false,
+	"extensions.ignoreRecommendations": true,
 	"explorer.confirmDelete": false,
 	"[js]": {
 		"editor.tabSize": 2,
@@ -134,4 +131,17 @@
 	"go.coverOnTestPackage": false,
 	"go.formatTool": "goimports",
 	"go.useLanguageServer": true,
+	"editor.guides.indentation": false,
+	"workbench.colorTheme": "GitHub Dark",
+	"go.toolsManagement.autoUpdate": true,
+	"playwright.env": {
+		"E2E_USERNAME_FINANCE": "will@watershedclimate.com",
+		"E2E_PASSWORD_FINANCE": "tPYU8UaszPve3qoe_tmqqnfF",
+		"NEXT_PUBLIC_DASHBOARD_HOST": "http://localhost:3000"
+	},
+	"[python]": {
+		"editor.formatOnType": true
+	},
+	"vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
+	"window.zoomLevel": 1,
 }

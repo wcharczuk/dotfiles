@@ -1,7 +1,7 @@
 [user]
     email = wcharczuk@users.noreply.github.com
 	name = Will Charczuk
-    signingkey = 9AB10BCECCBAE859
+    signingKey = /Users/wcharczuk/.ssh/yubikey_id.pub
 
 [color]
   branch = auto
@@ -41,9 +41,6 @@
 [url "git@github.com:"]
   insteadOf = "https://github.com/"
 
-[url "git@git.blendlabs.com:"]
-  insteadOf = "https://git.blendlabs.com"
-
 [credential]
   helper = cache
 
@@ -53,3 +50,11 @@
 [pull]
 	ff = only
 	rebase = false
+[gpg]
+	format = ssh
+[commit]
+    # gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /Users/wcharczuk/.config/git/known_signers
+[tag]
+    # gpgsign = true

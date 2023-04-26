@@ -1,4 +1,4 @@
-HISTFILE=$HOME/.zsh-history
+HISTFILE=$HOME/.zsh_history
 KEYTIMEOUT=1
 
 export ZSH=$HOME/.zsh
