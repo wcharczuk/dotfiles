@@ -21,7 +21,7 @@ fi
 
 for name in $SOURCE_DIR/*; do
 	filename=`basename "$name"`
-	destination="$TARGET_DIR/$TARGET_LEADER$filename"
+	destination="${TARGET_DIR}/${TARGET_LEADER}${filename}"
 
 	if [ -f "$destination" ] || [ -d "$destination" ] || [ -L "$destination" ]; then
 		rm -rf "$destination"
@@ -31,3 +31,4 @@ for name in $SOURCE_DIR/*; do
 done
 
 exit 0
+
