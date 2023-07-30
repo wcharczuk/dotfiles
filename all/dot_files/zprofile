@@ -55,10 +55,6 @@ if [ -s "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
 fi
 
-if [ -s "$HOME/.zprofile_watershed" ]; then
-    source $HOME/.zprofile_watershed
-fi
-
 function addsshkeys() {
     if [ -f "$HOME/.ssh/id_rsa" ]; then 
 	    ssh-add $HOME/.ssh/id_rsa &> /dev/null
