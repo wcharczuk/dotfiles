@@ -31,7 +31,6 @@
 		"strings": false
 	},
 	"editor.suggestOnTriggerCharacters": false,
-	"go.autocompleteUnimportedPackages": true,
 	"html.format.wrapLineLength": 0,
 	"html.format.enable": false,
 	"workbench.sideBar.location": "left",
@@ -66,7 +65,7 @@
 	"[html]": {
 		"editor.insertSpaces": true,
 		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
+		"editor.tabSize": 2,
 	},
 	"[terraform]": {
 		"editor.insertSpaces": true,
@@ -92,7 +91,6 @@
 		"**/dist/**": false
 	},
 	"editor.acceptSuggestionOnCommitCharacter": false,
-	"materialTheme.accent": "Graphite",
 	"editor.renderWhitespace": "none",
 	"vim.useSystemClipboard": false,
 	"editor.tabCompletion": "on",
@@ -134,14 +132,14 @@
 	"editor.guides.indentation": false,
 	"workbench.colorTheme": "GitHub Dark",
 	"go.toolsManagement.autoUpdate": true,
-	"playwright.env": {
-		"E2E_USERNAME_FINANCE": "will@watershedclimate.com",
-		"E2E_PASSWORD_FINANCE": "tPYU8UaszPve3qoe_tmqqnfF",
-		"NEXT_PUBLIC_DASHBOARD_HOST": "http://localhost:3000"
-	},
 	"[python]": {
 		"editor.formatOnType": true
 	},
-	"vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
 	"window.zoomLevel": 1,
+	"git.openRepositoryInParentFolders": "never",
+	"[typescriptreact]": {
+		"editor.insertSpaces": true,
+		"editor.formatOnSave": true,
+		"editor.tabSize": 2,
+	},
 }

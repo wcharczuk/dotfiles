@@ -9,9 +9,11 @@ export PATH="/usr/local/Cellar/coreutils/8.29/libexec/gnubin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 # export TERM="xterm-256color"
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
 
 #go stuff
 export PATH="$PATH:/usr/local/opt/go/libexec/bin"
+export PATH="$PATH:/$(brew --prefix)/opt/postgresql@15/bin"
 export PGDATA=/usr/local/var/postgres
 
 export GOPATH=$WORKSPACE/go
@@ -23,3 +25,5 @@ alias l="ls -alG"
 alias ls="ls -alG"
 alias ll="ls -alG"
 # }
+
+export DOCKER_HOST='unix:///Users/will/.local/share/containers/podman/machine/qemu/podman.sock'
