@@ -14,17 +14,17 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
 #}
 
-#{
-# export LC_COLLATE="C"
-# export LC_ALL="C.UTF-8"
-# export LANG="en_US.UTF-8"
-#}
+# {
+#  export LC_COLLATE="C"
+#  export LC_ALL="C.UTF-8"
+#  export LANG="en_US.UTF-8"
+# }
 
 #alias {
-alias ls="ls -a -l --color=always"
+alias ls='ls -a -l --color=always'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-alias e="emacs -nw"
+alias e='emacs -nw'
 #}
 
 if [ -d $HOME/.nodenv ]; then
