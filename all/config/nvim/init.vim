@@ -6,6 +6,7 @@
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'tpope/vim-commentary'
   call plug#end()
 "}
 
@@ -48,7 +49,7 @@ set number " set line numbers
 set rnu " relative line numbers (with number makes the display 'hybrid')
 
 " remaps
-vnoremap p "_dP
+" vnoremap p "_dP
 
 if filereadable('/usr/bin/python3')
   let g:python_host_prog = '/usr/bin/python'
@@ -119,6 +120,9 @@ let g:go_test_timeout = "10s"
 let g:go_fmt_command = "goimports"
 " }
 
+let g:commentstring = "//"
+map <C-_> <Plug>Commentary
+
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab
@@ -175,7 +179,8 @@ let g:go_fmt_command = "goimports"
 	au FileType python set expandtab
 	au FileType python set shiftwidth=4
 	au FileType python set softtabstop=4
-	au FileType python set tabstop=4	
+	au FileType python set tabstop=4
+    au FileType python let g:commentstring="#"
 	"}
 	
 	"ruby {
@@ -183,6 +188,7 @@ let g:go_fmt_command = "goimports"
 	au FileType ruby set shiftwidth=2
 	au FileType ruby set softtabstop=2
 	au FileType ruby set tabstop=2
+    au FileType ruby let g:commentstring="#"
 	"}
 	
 	"yaml {
@@ -190,9 +196,12 @@ let g:go_fmt_command = "goimports"
 	au FileType yaml set shiftwidth=2
 	au FileType yaml set softtabstop=2
 	au FileType yaml set tabstop=2	
+    au FileType yaml let g:commentstring="#"
+
 	au FileType yml set expandtab
 	au FileType yml set shiftwidth=2
 	au FileType yml set softtabstop=2
 	au FileType yml set tabstop=2	
+    au FileType yml let g:commentstring="#"
 	"}
 "}
