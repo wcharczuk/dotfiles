@@ -3,9 +3,10 @@
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'ray-x/go.nvim'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'tpope/vim-commentary'
   call plug#end()
 "}
 
@@ -48,7 +49,7 @@ set number " set line numbers
 set rnu " relative line numbers (with number makes the display 'hybrid')
 
 " remaps
-vnoremap p "_dP
+" vnoremap p "_dP
 
 if filereadable('/usr/bin/python3')
   let g:python_host_prog = '/usr/bin/python'
@@ -96,6 +97,54 @@ nnoremap <c-p> :Files<cr>
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
+<<<<<<< HEAD
+=======
+if has('nvim')
+    " Enable deoplete on startup
+    let g:deoplete#enable_at_startup = 1
+    let g:go_fmt_command = 'goimports'
+    let g:go_fmt_options = {
+        \ 'goimports': '-local golang.blend.com',
+    \ }
+endif
+
+" }
+
+" coc {
+let g:coc_global_extensions = [
+    \ 'coc-go',
+    \ 'coc-tsserver',
+    \ 'coc-json',
+    \ 'coc-snippets',
+    \]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
+nnoremap <silent> K :call CocAction('doHover')<CR>
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-space> 
+      \ pumvisible() ? "\<C-n>" :
+      \ coc#refresh()
+
+let g:coc_selectmode_mapping = 0
+" }
+
+" vim-go {
+let g:go_lst_type = "quickfix"
+let g:go_test_timeout = "10s"
+let g:go_fmt_command = "goimports"
+" }
+
+let g:commentstring = "//"
+map <C-_> <Plug>Commentary
+
+>>>>>>> 41154bcc72de18d86ee032ce1de49aefe8f2217e
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab
@@ -152,7 +201,8 @@ command! -bang -nargs=? -complete=dir Files
 	au FileType python set expandtab
 	au FileType python set shiftwidth=4
 	au FileType python set softtabstop=4
-	au FileType python set tabstop=4	
+	au FileType python set tabstop=4
+    au FileType python let g:commentstring="#"
 	"}
 	
 	"ruby {
@@ -160,6 +210,7 @@ command! -bang -nargs=? -complete=dir Files
 	au FileType ruby set shiftwidth=2
 	au FileType ruby set softtabstop=2
 	au FileType ruby set tabstop=2
+    au FileType ruby let g:commentstring="#"
 	"}
 	
 	"yaml {
@@ -167,9 +218,12 @@ command! -bang -nargs=? -complete=dir Files
 	au FileType yaml set shiftwidth=2
 	au FileType yaml set softtabstop=2
 	au FileType yaml set tabstop=2	
+    au FileType yaml let g:commentstring="#"
+
 	au FileType yml set expandtab
 	au FileType yml set shiftwidth=2
 	au FileType yml set softtabstop=2
 	au FileType yml set tabstop=2	
+    au FileType yml let g:commentstring="#"
 	"}
 "}
