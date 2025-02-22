@@ -135,7 +135,6 @@
 	"[python]": {
 		"editor.formatOnType": true
 	},
-	"window.zoomLevel": 1,
 	"git.openRepositoryInParentFolders": "never",
 	"[typescriptreact]": {
 		"editor.insertSpaces": true,

@@ -3,9 +3,9 @@
     Plug 'kaicataldo/material.vim', { 'branch': 'main' }
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-    Plug 'kyazdani42/nvim-web-devicons' " for file icons
-    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'ray-x/go.nvim'
   call plug#end()
 "}
 
@@ -70,54 +70,31 @@ if has('mouse')
   set mouse=a
 endif
 
+" modify cursor on insert mode {
+:autocmd InsertEnter * set cursorline
+:autocmd InsertLeave * set nocursorline
+" }
+
+lua <<EOF
+require('go').setup()
+
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+EOF
+
 "plugin specific {
 "
 " fzf
 nnoremap <c-p> :Files<cr>
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
-
-if has('nvim')
-    " Enable deoplete on startup
-    let g:deoplete#enable_at_startup = 1
-    let g:go_fmt_command = 'goimports'
-    let g:go_fmt_options = {
-        \ 'goimports': '-local golang.blend.com',
-    \ }
-endif
-
-" }
-
-" coc {
-let g:coc_global_extensions = [
-    \ 'coc-go',
-    \ 'coc-tsserver',
-    \ 'coc-json',
-    \ 'coc-snippets',
-    \]
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-  let g:coc_global_extensions += ['coc-prettier']
-endif
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
-
-nnoremap <silent> K :call CocAction('doHover')<CR>
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <c-space> 
-      \ pumvisible() ? "\<C-n>" :
-      \ coc#refresh()
-
-let g:coc_selectmode_mapping = 0
-" }
-
-" vim-go {
-let g:go_lst_type = "quickfix"
-let g:go_test_timeout = "10s"
-let g:go_fmt_command = "goimports"
-" }
 
 "filetypes {
 	"golang {

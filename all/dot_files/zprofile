@@ -10,30 +10,12 @@
 #}
 
 #aliases {
-  alias py="python3"
-  alias lod="echo ಠ_ಠ"
-  alias j="jump"
-  alias v="nvim"
   alias vim="nvim"
-  alias e="emacs"
-  alias t="tmux"
-  alias g="git"
 #}
 
 #helpers{
   alias attach="tmux attach -t work || tmux new-session -s work"
   alias detach="tmux detach"
-#}
-
-#git aliases {
-  alias ga="git add ."
-  alias gs="git status"
-  alias gcam="git commit -am"
-  alias gcm="git commit -m"
-  alias gnb="git checkout -b"
-  alias gb="git checkout"
-  alias gp="git pull"
-  alias gm="git checkout main"
 #}
 
 #kubectl aliases {
@@ -42,6 +24,7 @@
 #}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ ! -r /Users/will/.opam/opam-init/init.zsh ]] || source /Users/will/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 if [ -s "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
