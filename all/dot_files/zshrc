@@ -1,4 +1,5 @@
 HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000000
 KEYTIMEOUT=1
 
 export ZSH=$HOME/.zsh

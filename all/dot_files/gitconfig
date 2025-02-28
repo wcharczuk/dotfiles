@@ -1,60 +1,20 @@
 [user]
     email = wcharczuk@users.noreply.github.com
 	name = Will Charczuk
-    signingKey = /Users/wcharczuk/.ssh/yubikey_id.pub
-
-[color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
 
 [core]
-  editor = nvim
+    editor = nvim
 
 [merge]
-  tool = opendiff
-
-[alias]
-  a = add .
-  co = checkout
-  c = commit
-  st = status
-  br = branch
-  nb = checkout -b
-  cp0 = commit -am \"progress checkpoint: use 'git cp' from here on\"
-  cp = commit --amend --no-edit
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-  unstage = reset HEAD
-  uncommit = reset --soft HEAD^
-  undo = checkout --
-
-[push]
-  default = simple
+    tool = opendiff
 
 [advice]
-  statusHints = false
-
-[url "git@github.com:"]
-  insteadOf = "https://github.com/"
+    statusHints = false
 
 [credential]
-  helper = cache
+    helper = cache
 
 [init]
     defaultBranch = main
-
-[pull]
-	ff = only
-	rebase = false
-[gpg]
-	format = ssh
-[commit]
-    # gpgsign = true
-[gpg "ssh"]
-	allowedSignersFile = /Users/wcharczuk/.config/git/known_signers
-[tag]
-    # gpgsign = true
+[url "git@git.corp.stripe.com:"]
+	insteadOf = https://git.corp.stripe.com/
