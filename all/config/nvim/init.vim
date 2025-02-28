@@ -71,6 +71,25 @@ if has('mouse')
   set mouse=a
 endif
 
+" modify cursor on insert mode {
+:autocmd InsertEnter * set cursorline
+:autocmd InsertLeave * set nocursorline
+" }
+
+lua <<EOF
+require('go').setup()
+
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+EOF
+
 "plugin specific {
 "
 " fzf
@@ -78,6 +97,8 @@ nnoremap <c-p> :Files<cr>
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
+<<<<<<< HEAD
+=======
 if has('nvim')
     " Enable deoplete on startup
     let g:deoplete#enable_at_startup = 1
@@ -123,6 +144,7 @@ let g:go_fmt_command = "goimports"
 let g:commentstring = "//"
 map <C-_> <Plug>Commentary
 
+>>>>>>> 41154bcc72de18d86ee032ce1de49aefe8f2217e
 "filetypes {
 	"golang {
 	au FileType go set noexpandtab

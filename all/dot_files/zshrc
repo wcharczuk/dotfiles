@@ -5,9 +5,9 @@ KEYTIMEOUT=1
 export ZSH=$HOME/.zsh
 
 plugins=(
-	git 
-	jump 
-	osx
+    git
+    jump
+    osx
     fzf
 )
 ZSH_THEME="wcharczuk"
