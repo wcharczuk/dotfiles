@@ -9,22 +9,22 @@
   export PATH=$HOME/bin:$PATH
 #}
 
-#aliases {
+# common aliases {
   alias vim="nvim"
+  alias j="jump"
 #}
 
-#helpers{
+# tmux aliases {
   alias attach="tmux attach -t work || tmux new-session -s work"
   alias detach="tmux detach"
 #}
 
-#kubectl aliases {
+# kubectl aliases {
   alias k="kubectl"
   alias mk="microk8s kubectl"
 #}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ ! -r /Users/will/.opam/opam-init/init.zsh ]] || source /Users/will/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 if [ -s "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
