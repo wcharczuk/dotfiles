@@ -25,6 +25,7 @@ mas "1Password 7", id: 1333542190
 mas "Tailscale", id: 1475387142
 mas "Slack for Desktop", id: 803453959
 mas "Apple Remote Desktop", id: 409907375
+mas "UTC Time", id: 1538245904
 
 # vim: set ft=ruby:
 
