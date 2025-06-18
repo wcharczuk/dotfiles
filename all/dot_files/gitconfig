@@ -16,5 +16,9 @@
 
 [init]
     defaultBranch = main
+
 [url "git@git.corp.stripe.com:"]
 	insteadOf = https://git.corp.stripe.com/
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
