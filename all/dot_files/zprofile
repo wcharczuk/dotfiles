@@ -9,17 +9,17 @@
   export PATH=$HOME/bin:$PATH
 #}
 
-#aliases {
+# common aliases {
   alias vim="nvim"
   alias j="jump"
 #}
 
-#helpers{
+# tmux aliases {
   alias attach="tmux attach -t work || tmux new-session -s work"
   alias detach="tmux detach"
 #}
 
-#kubectl aliases {
+# kubectl aliases {
   alias k="kubectl"
   alias mk="microk8s kubectl"
 #}
