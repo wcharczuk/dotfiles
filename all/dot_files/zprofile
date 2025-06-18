@@ -11,6 +11,7 @@
 
 #aliases {
   alias vim="nvim"
+  alias j="jump"
 #}
 
 #helpers{
@@ -24,7 +25,6 @@
 #}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ ! -r /Users/will/.opam/opam-init/init.zsh ]] || source /Users/will/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 if [ -s "$HOME/.zsecure" ]; then
     source $HOME/.zsecure
@@ -36,6 +36,10 @@ fi
 
 if [ -s "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
+fi
+
+if [ -s "$HOME/.zprofile_stripe" ]; then
+    source $HOME/.zprofile_stripe
 fi
 
 function addsshkeys() {

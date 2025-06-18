@@ -18,6 +18,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 export GOPATH=$WORKSPACE/go
 export PATH=$GOPATH/bin:$PATH
+export PATH=$HOME/bin:$PATH
 #}
 
 # aliases {
