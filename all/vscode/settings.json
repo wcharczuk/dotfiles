@@ -12,8 +12,8 @@
 	"editor.autoClosingQuotes": "never",
 	"editor.autoClosingBrackets": "never",
 	"editor.copyWithSyntaxHighlighting": false,
-	// "editor.fontFamily": "Source Code Pro",
-	"editor.fontSize": 16,
+	"editor.fontFamily": "Source Code Pro",
+	"editor.fontSize": 18,
 	"editor.formatOnSave": true,
 	"editor.wordBasedSuggestions": "off",
 	"editor.minimap.enabled": false,
@@ -147,8 +147,8 @@
 	"remote.SSH.enableDynamicForwarding": false,
 	"remote.forwardOnOpen": false,
 	"remote.otherPortsAttributes": {
-    "onAutoForward": "ignore"
-  },
+		"onAutoForward": "ignore"
+	},
 	"remote.SSH.enableAgentForwarding": false,
 	"remote.SSH.path": "sc-ssh-wrapper",
 	"remote.SSH.useLocalServer": true,
@@ -162,31 +162,31 @@
 	"workbench.activityBar.location": "hidden",
 	"security.promptForLocalFileProtocolHandling": false,
 	"github.copilot.enable": {
-    "*": false,
-    "apex": true,
-    "erb": true,
-    "go": true,
-    "java": true,
-    "javascript": true,
-    "python": true,
-    "ruby": true,
-    "rust": true,
-    "scala": true,
-    "shellscript": true,
-    "starlark": true,
-    "terraform": true,
-    "typescript": true,
-    "typescriptreact": true
-  },
+		"*": false,
+		"apex": true,
+		"erb": true,
+		"go": true,
+		"java": true,
+		"javascript": true,
+		"python": true,
+		"ruby": true,
+		"rust": true,
+		"scala": true,
+		"shellscript": true,
+		"starlark": true,
+		"terraform": true,
+		"typescript": true,
+		"typescriptreact": true
+	},
 	"cody.override.serverEndpoint": "http://sourcegraph.corp.stripe.com",
 	"cody.override.authToken": "sgp_unused_but_must_be_nonempty",
 	"cody.net.proxy.endpoint": "unix://~/.stripeproxy",
 	"gitlens.remotes": [
-    {
-      "domain": "git.corp.stripe.com",
-      "type": "GitHub"
-    }
-  ],
+		{
+			"domain": "git.corp.stripe.com",
+			"type": "GitHub"
+		}
+	],
 	"gitlens.ai.experimental.generateCommitMessage.enabled": false,
 	"ruby.rubocop.hideDisableSuggestions": true,
 	"security.promptForRemoteFileProtocolHandling": false,

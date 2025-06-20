@@ -20,12 +20,31 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
 	{'folke/tokyonight.nvim'},
-    {'junegunn/fzf'},
+	{
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        -- or if using mini.icons/mini.nvim
+        -- dependencies = { "echasnovski/mini.icons" },
+        opts = {}
+	},
 	{'mason-org/mason.nvim', tag = 'v1.11.0', pin = true},
 	{'mason-org/mason-lspconfig.nvim', tag = 'v1.32.0', pin = true},
 	{'neovim/nvim-lspconfig', tag = 'v1.8.0', pin = true},
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'hrsh7th/nvim-cmp'},
+	{
+		"folke/trouble.nvim",
+		opts = {}, -- for default options, refer to the configuration section for custom setup.
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+		},
+	}
 })
 
 vim.opt.termguicolors = true
@@ -78,8 +97,12 @@ require('lspconfig').gopls.setup({
   end,
 })
 
-local cmp = require('cmp')
+-- handle automatic formatting for *.go
+local lspconfig = require('lspconfig') lspconfig.gopls.setup {}
+vim.cmd [[autocmd BufWritePre *.go lua vim.lsp.buf.format({ async = true })]]
+vim.api.nvim_create_autocmd('BufWritePre', { pattern = '*.go', callback = function() vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true }) end })
 
+local cmp = require('cmp')
 cmp.setup({
   sources = {
     {name = 'nvim_lsp'},
@@ -105,6 +128,9 @@ cmp.setup({
     end,
   },
 })
+
+-- fzf filesearch
+vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
 
 -- old settings from init.vim
 vim.opt.tabstop = 4
