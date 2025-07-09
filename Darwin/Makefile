@@ -38,9 +38,9 @@ install-dot-directories:
 	@echo "(${OS}) Installing Dot Directories Done!"
 
 install-config-directories:
-	@echo "(${OS}) Installing Config Directories"
+	@echo "(${OS}) Installing .config Directories"
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config TARGET_LEADER="." sh ${PROJECT_ROOT}/links_create.sh
-	@echo "(${OS}) Installing Dot Directories Done!"
+	@echo "(${OS}) Installing .config Directories Done!"
 
 clean-dot-files:
 	@echo "(${OS}) Cleaning Dot Files"
@@ -53,9 +53,9 @@ clean-dot-directories:
 	@echo "(${OS}) Cleaning Dot Directories Done!"
 
 clean-config-directories:
-	@echo "(${OS}) Cleaning Config Directories"
+	@echo "(${OS}) Cleaning .config Directories"
 	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config TARGET_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
-	@echo "(${OS}) Cleaning Dot Directories Done!"
+	@echo "(${OS}) Cleaning .config Directories Done!"
 
 clean-default-keybindings:
 	@rm -f ${KEYBINDINGS_DIR}/DefaultKeyBinding.dict
