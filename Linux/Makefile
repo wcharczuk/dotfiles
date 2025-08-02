@@ -12,34 +12,34 @@ project-root:
 
 install-dot-files:
 	@echo "(${OS}) Installing Dot Files"
-	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/links_create.sh
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} TARGET_LEADER="." sh ${PROJECT_ROOT}/links_create.sh
 	@echo "(${OS}) Installing Dot Files Done!"
 
 install-dot-directories:
 	@echo "(${OS}) Installing Dot Directories"
-	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_directories TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/links_create.sh
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_directories TARGET_DIR=${HOME} TARGET_LEADER="." sh ${PROJECT_ROOT}/links_create.sh
 	@echo "(${OS}) Installing Dot Directories Done!"
 
 install-config-directories:
-	@echo "(${OS}) Installing Config Directories"
+	@echo "(${OS}) Installing .config Directories"
 	@mkdir -p ${HOME}/.config
-	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh ${PROJECT_ROOT}/links_create.sh
-	@echo "(${OS}) Installing Config Directories Done!"	
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config sh ${PROJECT_ROOT}/links_create.sh
+	@echo "(${OS}) Installing .config Directories Done!"	
 
 clean-dot-files:
 	@echo "(${OS}) Cleaning Dot Files"
-	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_files TARGET_DIR=${HOME} TARGET_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
 	@echo "(${OS}) Cleaning Dot Files Done!"
 
 clean-dot-directories:
 	@echo "(${OS}) Cleaning Dot Directories"
-	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_directories TARGET_DIR=${HOME} FILE_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/dot_directories TARGET_DIR=${HOME} TARGET_LEADER="." sh ${PROJECT_ROOT}/links_remove.sh
 	@echo "(${OS}) Cleaning Dot Directories Done!"
 
 clean-config-directories:
-	@echo "(${OS}) Cleaning Config Directories"
-	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config FILE_LEADER="" sh ${PROJECT_ROOT}/links_remove.sh
-	@echo "(${OS}) Cleaning Config Directories Done!"	
+	@echo "(${OS}) Cleaning .config Directories"
+	@SOURCE_DIR=${PROJECT_ROOT}/${OS}/config TARGET_DIR=${HOME}/.config sh ${PROJECT_ROOT}/links_remove.sh
+	@echo "(${OS}) Cleaning .config Directories Done!"	
 
 ################################################################################
 # app installation

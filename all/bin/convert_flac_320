@@ -8,3 +8,8 @@ for a in ./*.flac; do
 done
 
 IFS=$SAVEIFS
+
+rm -rf *.flac
+rm -rf *.cue
+rm -rf *.log
+rm -rf *.m3u

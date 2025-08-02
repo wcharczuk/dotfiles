@@ -9,34 +9,17 @@
   export PATH=$HOME/bin:$PATH
 #}
 
-#aliases {
-  alias py="python3"
-  alias lod="echo ಠ_ಠ"
-  alias j="jump"
-  alias v="nvim"
+# common aliases {
   alias vim="nvim"
-  alias e="emacs"
-  alias t="tmux"
-  alias g="git"
+  alias j="jump"
 #}
 
-#helpers{
+# tmux aliases {
   alias attach="tmux attach -t work || tmux new-session -s work"
   alias detach="tmux detach"
 #}
 
-#git aliases {
-  alias ga="git add ."
-  alias gs="git status"
-  alias gcam="git commit -am"
-  alias gcm="git commit -m"
-  alias gnb="git checkout -b"
-  alias gb="git checkout"
-  alias gp="git pull"
-  alias gm="git checkout main"
-#}
-
-#kubectl aliases {
+# kubectl aliases {
   alias k="kubectl"
   alias mk="microk8s kubectl"
 #}
@@ -53,6 +36,10 @@ fi
 
 if [ -s "$HOME/.zprofile_darwin" ]; then
     source $HOME/.zprofile_darwin
+fi
+
+if [ -s "$HOME/.zprofile_stripe" ]; then
+    source $HOME/.zprofile_stripe
 fi
 
 function addsshkeys() {

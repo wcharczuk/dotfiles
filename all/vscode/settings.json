@@ -6,21 +6,20 @@
 	"update.showReleaseNotes": false,
 	"editor.gotoLocation.multipleDefinitions": "goto",
 	// files settings
-	"files.trimFinalNewlines": true,
-	"files.trimTrailingWhitespace": true,
-	"vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+	"files.trimFinalNewlines": false,
+	"files.trimTrailingWhitespace": false,
 	// editor settings
 	"editor.autoClosingQuotes": "never",
 	"editor.autoClosingBrackets": "never",
 	"editor.copyWithSyntaxHighlighting": false,
-	// "editor.fontFamily": "Source Code Pro",
-	"editor.fontSize": 16,
+	"editor.fontFamily": "Source Code Pro",
+	"editor.fontSize": 18,
 	"editor.formatOnSave": true,
-	"editor.wordBasedSuggestions": false,
+	"editor.wordBasedSuggestions": "off",
 	"editor.minimap.enabled": false,
 	"editor.roundedSelection": false,
 	"editor.insertSpaces": false,
-	"editor.lightbulb.enabled": false,
+	"editor.lightbulb.enabled": "off",
 	"editor.codeLens": false,
 	"editor.dragAndDrop": false,
 	"editor.lineNumbers": "relative",
@@ -31,11 +30,9 @@
 		"strings": false
 	},
 	"editor.suggestOnTriggerCharacters": false,
-	"go.autocompleteUnimportedPackages": true,
 	"html.format.wrapLineLength": 0,
 	"html.format.enable": false,
 	"workbench.sideBar.location": "left",
-	"workbench.activityBar.visible": false,
 	"workbench.statusBar.visible": true,
 	"workbench.tips.enabled": false,
 	"workbench.editor.enablePreview": false,
@@ -66,7 +63,7 @@
 	"[html]": {
 		"editor.insertSpaces": true,
 		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
+		"editor.tabSize": 2,
 	},
 	"[terraform]": {
 		"editor.insertSpaces": true,
@@ -92,7 +89,6 @@
 		"**/dist/**": false
 	},
 	"editor.acceptSuggestionOnCommitCharacter": false,
-	"materialTheme.accent": "Graphite",
 	"editor.renderWhitespace": "none",
 	"vim.useSystemClipboard": false,
 	"editor.tabCompletion": "on",
@@ -125,8 +121,7 @@
 	},
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"gopls": {
-		"usePlaceholders": true,
-		"completeUnimported": true
+		"ui.semanticTokens": true,
 	},
 	"go.coverOnTestPackage": false,
 	"go.formatTool": "goimports",
@@ -134,14 +129,65 @@
 	"editor.guides.indentation": false,
 	"workbench.colorTheme": "GitHub Dark",
 	"go.toolsManagement.autoUpdate": true,
-	"playwright.env": {
-		"E2E_USERNAME_FINANCE": "will@watershedclimate.com",
-		"E2E_PASSWORD_FINANCE": "tPYU8UaszPve3qoe_tmqqnfF",
-		"NEXT_PUBLIC_DASHBOARD_HOST": "http://localhost:3000"
-	},
 	"[python]": {
 		"editor.formatOnType": true
 	},
-	"vale.doNotShowWarningForFileToBeSavedBeforeLinting": true,
-	"window.zoomLevel": 1,
+	"git.openRepositoryInParentFolders": "never",
+	"[typescriptreact]": {
+		"editor.insertSpaces": true,
+		"editor.formatOnSave": true,
+		"editor.tabSize": 2,
+	},
+	"window.title": "${rootPath}${separator}${activeEditorMedium}",
+	"update.mode": "none",
+	"security.workspace.trust.enabled": false,
+	"telemetry.telemetryLevel": "off",
+	"remote.autoForwardPorts": false,
+	"remote.restoreForwardedPorts": false,
+	"remote.SSH.enableDynamicForwarding": false,
+	"remote.forwardOnOpen": false,
+	"remote.otherPortsAttributes": {
+		"onAutoForward": "ignore"
+	},
+	"remote.SSH.enableAgentForwarding": false,
+	"remote.SSH.path": "sc-ssh-wrapper",
+	"remote.SSH.useLocalServer": true,
+	"remote.SSH.connectTimeout": 60,
+	"remote.SSH.configFile": "~/.ssh/devboxes",
+	"remote.SSH.enableRemoteCommand": true,
+	"search.followSymlinks": false,
+	"debug.javascript.automaticallyTunnelRemoteServer": false,
+	"typescript.tsdk": "~/stripe/pay-server/frontend/js-scripts/node_modules/typescript/lib",
+	"remote.autoForwardPortsSource": "output",
+	"workbench.activityBar.location": "hidden",
+	"security.promptForLocalFileProtocolHandling": false,
+	"github.copilot.enable": {
+		"*": false,
+		"apex": true,
+		"erb": true,
+		"go": true,
+		"java": true,
+		"javascript": true,
+		"python": true,
+		"ruby": true,
+		"rust": true,
+		"scala": true,
+		"shellscript": true,
+		"starlark": true,
+		"terraform": true,
+		"typescript": true,
+		"typescriptreact": true
+	},
+	"cody.override.serverEndpoint": "http://sourcegraph.corp.stripe.com",
+	"cody.override.authToken": "sgp_unused_but_must_be_nonempty",
+	"cody.net.proxy.endpoint": "unix://~/.stripeproxy",
+	"gitlens.remotes": [
+		{
+			"domain": "git.corp.stripe.com",
+			"type": "GitHub"
+		}
+	],
+	"gitlens.ai.experimental.generateCommitMessage.enabled": false,
+	"ruby.rubocop.hideDisableSuggestions": true,
+	"security.promptForRemoteFileProtocolHandling": false,
 }
