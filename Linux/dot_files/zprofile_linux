@@ -12,6 +12,7 @@ export GOPATH=$WORKSPACE/go
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.temporalio/bin/
 #}
 
 # {
@@ -30,3 +31,6 @@ alias e='emacs -nw'
 if [ -d $HOME/.nodenv ]; then
     eval "$(nodenv init - zsh)"
 fi
+
+export FLYCTL_INSTALL="/home/wcharczuk/.fly"
+  export PATH="$FLYCTL_INSTALL/bin:$PATH"
