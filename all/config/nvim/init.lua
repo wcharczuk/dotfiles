@@ -13,8 +13,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.opt.rtp:prepend(lazypath)
-
 require('lazy').setup({
     {
         "nvim-treesitter/nvim-treesitter",
@@ -142,6 +140,9 @@ cmp.setup({
 
 -- fzf filesearch
 vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
+
+-- semantic token thing
+vim.highlight.priorities.semantic_tokens = 95
 
 -- old settings from init.vim
 vim.opt.tabstop = 4
